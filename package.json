@@ -1,0 +1,26 @@
+{
+  "name": "draftday",
+  "version": "1.0.0",
+  "description": "Web app for collaborative drafting",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+	"start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amunger/draftday.git"
+  },
+  "author": "Aaron Munger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amunger/draftday/issues"
+  },
+  "homepage": "https://github.com/amunger/draftday#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
