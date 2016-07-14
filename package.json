@@ -2,10 +2,10 @@
   "name": "draftday",
   "version": "1.0.0",
   "description": "Web app for collaborative drafting",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "mocha",
-	"start": "node index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "mocha": "^2.5.3"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "jade": "^1.11.0"
   }
 }
