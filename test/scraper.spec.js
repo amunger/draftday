@@ -31,6 +31,7 @@ describe('Scraping player data', function(){
 		var returnTimes = 3;
 		
 		var httpStub = sinon.stub(httpTool, "getBodyForRequest", function (url) { 
+			console.log(url);
 			urlsCalled.push(url);
 			if (returnTimes--) return 'val1,val2,val3'; else return '';
 		});
@@ -40,8 +41,9 @@ describe('Scraping player data', function(){
 		httpStub.restore();
 		
 		it('should call for next set of data', function() {
-			assert(urlsCalled.length > 1, 'http tools should make multiple calls for full data');
-			assert(urlsCalled[0] != urlsCalled[1], 'each URL called should be different')
+			assert(urlsCalled.length > 2, 'http tools should make multiple calls for full data');
+			assert(urlsCalled[0] != urlsCalled[1], 'each URL called should be different');
+			assert(urlsCalled[1] != urlsCalled[2], 'each URL called should be different');
 		});
 		
 		it('should return an array of the data retreived', function(){
@@ -50,4 +52,12 @@ describe('Scraping player data', function(){
 		
 	});
 	
+});
+
+describe('the URL builder', function () {
+	var urlBuilder = require('../scraper/urlBuilder');
+	it('should insert the offset into the query parameters', function(){
+		var url = urlBuilder.build(1);
+		assert(url.indexOf('offset=1') > -1);
+	})
 });

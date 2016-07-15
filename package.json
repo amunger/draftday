@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "start": "node server.js"
+    "start": "node server.js",
+    "scrape": "node ./scraper/runScrape.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,10 @@
   },
   "dependencies": {
     "express": "^4.14.0",
+    "fs": "0.0.2",
     "jade": "^1.11.0",
-    "sinon": "^1.17.4"
+    "request": "^2.73.0",
+    "sinon": "^1.17.4",
+    "sync-request": "^3.0.1"
   }
 }
