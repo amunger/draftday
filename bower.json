@@ -1,0 +1,23 @@
+{
+  "name": "draftday",
+  "description": "Web app for collaborative drafting",
+  "main": "server.js",
+  "authors": [
+    "Aaron Munger"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/amunger/draftday",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "toastr": "^2.1.2"
+  }
+}
