@@ -8,9 +8,6 @@ var routes = require('./app/routes');
 
 var env = process.env.NODE_ENV || 'dev';
 
-app.set('views', path.join(__dirname, '/app/views'));
-app.set('view engine', 'jade');
-
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -20,7 +17,7 @@ app.use(methodOverride());
 
 routes(app);
 
-var port = 3000;
+var port = 3001;
 app.listen(port, function() {
 	console.log('listening on port ' + port);
 });
