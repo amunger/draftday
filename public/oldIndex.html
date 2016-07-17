@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Draft Day</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-4">
+          <div class="row">
+            <h2>Teams</h2>
+            <button class="btn btn-default" data-toggle="modal" data-target="#addTeamModal">Add Team</button>
+            <button class="btn btn-default" data-toggle="modal" data-target="#manageTeamModal">Manage Teams</button>
+          </div>
+
+          <div class="row">
+
+            <div class="row col-sm-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">Draft Order</div>
+                <div class="list-group draft-list">
+                  <a href="#" class="list-group-item">
+                    <p><h5>Brewski blasters</h5>
+                    QB:1 RB:3<br/>
+                    WR:0 TE:0<br/>
+                    K:0 DEF:0</p>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <p><h5>Brewski blasters2</h5>
+                    QB:1 RB:3<br/>
+                    WR:0 TE:0<br/>
+                    K:0 DEF:0</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-5">
+              <div class="panel panel-default">
+                <div class="panel-heading">Current Pick</div>
+                <div class="panel-body">
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-8">
+          <div class="row players">
+            <h2>Players</h2>
+          </div>
+
+          <div class="row users">
+            <div class="col-sm-4">
+              <h4>Users</h4>
+            </div>
+            <div class="col-sm-8">
+              <h4>Chat</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Add Team Modal -->
+    <div class="modal fade" id="addTeamModal" tabindex="-1" role="dialog" aria-labelledby="addTeamModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Add Team</h4>
+          </div>
+          <div class="modal-body">
+
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="teamName" class="col-sm-4 control-label">Team Name</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" name="teamName" placeholder="team name">
+                </div>
+                <label for="owner" class="col-sm-4 control-label">Owner</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control"  name="owner" placeholder="Owner">
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Add Team To Draft Order</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Team Modal -->
+    <div class="modal fade" id="addTeamModal" tabindex="-1" role="dialog" aria-labelledby="manageTeamsModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Manage Teams</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Remove Selected</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="lib/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
