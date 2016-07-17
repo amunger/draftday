@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
 var path = require ('path');
+var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var routes = require('./app/routes');
 
 var env = process.env.NODE_ENV || 'dev';
 
@@ -13,10 +16,9 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(methodOverride());
 
-app.get('*', function(req, res) {
-	res.render('index');
-});
+routes(app);
 
 var port = 3000;
 app.listen(port, function() {

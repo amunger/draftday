@@ -21,9 +21,12 @@
     "mocha": "^2.5.3"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "jade": "^1.11.0",
+    "method-override": "^2.3.6",
     "morgan": "^1.7.0",
-    "sinon": "^1.17.4"
+    "sinon": "^1.17.4",
+    "underscore": "^1.8.3"
   }
 }
