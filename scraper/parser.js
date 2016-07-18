@@ -1,6 +1,6 @@
 
 
-var parseHtml = function (html){
+var parseHtmlForPlayers = function (html){
 	return [];
 }
 

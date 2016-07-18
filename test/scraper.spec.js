@@ -37,7 +37,7 @@ describe('Scraping player data', function(){
 		});
 		
 		var scraper = new Scraper({urlBuilder : urlBuilder, httpTool : httpTool});
-		var playerData = scraper.getPlayerData();
+		var playerData = scraper.getPlayerData(0);
 		httpStub.restore();
 		
 		it('should call for next set of data', function() {
