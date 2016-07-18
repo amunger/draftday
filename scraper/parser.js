@@ -5,4 +5,4 @@ var parseHtmlForPlayers = function (html){
 }
 
 
-module.exports = {parseHtml: parseHtml}
+module.exports = {parseHtmlForPlayers: parseHtmlForPlayers}
