@@ -2,7 +2,7 @@ var _ = require('underscore');
 
 var team = function(args){
   var args = args || {};
-  this.id = args.id || -1;
+  this.id = args.id || nextTeamID();
   this.name = args.name || '';
   this.owner = args.owner || '';
   this.players = [];
