@@ -8,4 +8,3 @@ console.log('scraping')
 var scraper = new Scraper({httpTool: httpTool, urlBuilder: urlBuilder});
 scraper.getPlayerData(5);
 
-//var output = httpTool.getBodyForRequest('http://fantasy.nfl.com/draftcenter/breakdown?leagueId=&offset=1&position=all&season=2016&sort=draftAveragePosition');
