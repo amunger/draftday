@@ -3,7 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var async = require('async');
 
-var rawInputDir = './output/raw/'
+var rawInputDir = './output/raw_saved/'
 
 fs.readdir( rawInputDir, function( err, files ) {
 	if( err ) {
@@ -15,6 +15,7 @@ fs.readdir( rawInputDir, function( err, files ) {
 	async.each(files, function( file, callback ) {
 		var inFile = path.join(rawInputDir, file);
 		fs.readFile(inFile, function(err, data) {
+			console.log('Reading file ' + inFile);
 			players = players.concat(parser.parseHtmlForPlayers(data));
 			callback();
 		});
