@@ -14,11 +14,10 @@ var parseHtmlForPlayers = function (html){
 				team: teamAndPostion[1].trim(),
 				rank: $(this).find('td.playerDraftAvgPick').text()
 			};
-			console.log(player);
 			players.push(player);
 		}
 	});
-	
+	console.log('players parsed: ' + players.length)
 	return players;
 }
 
@@ -26,8 +25,7 @@ var getTeamAndPosition = function(el){
 	var text = el.find('em').text();
 	if (text.indexOf('-') === -1)
 	{
-		console.error('could not parse position and team from ' + text);
-		return [text, '']
+		return [text, ''];
 	}
 	return text.split('-');
 }

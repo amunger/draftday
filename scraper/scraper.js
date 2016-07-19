@@ -17,7 +17,7 @@ var scraper = function (options){
 		saveRawOutput(data, offset);
 		if (data) pages.push(data);
 		
-		while(data && offset < 2000){
+		while(data && offset < 872){
 			sleep(waitSeconds);
 			offset = offset + 25;
 			data = httpTool.getBodyForRequest(urlBuilder.build(offset));
