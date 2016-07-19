@@ -17,7 +17,7 @@ app.use(methodOverride());
 
 routes(app);
 
-var port = 3001;
+var port = process.env.PORT || 3000;
 app.listen(port, function() {
 	console.log('listening on port ' + port);
 });
