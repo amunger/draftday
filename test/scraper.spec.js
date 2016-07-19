@@ -13,7 +13,7 @@ describe('Scraping player data', function(){
 		var httpStub = sinon.stub(httpTool, "getBodyForRequest", function (url) { urlsCalled.push(url); return ''});
 		
 		var scraper = new Scraper({urlBuilder : urlBuilder, httpTool : httpTool});
-		var playerData = scraper.getPlayerData();
+		var playerData = scraper.getPlayerData(0);
 		httpStub.restore();
 		
 		it('should make only one request to the URL',function(){

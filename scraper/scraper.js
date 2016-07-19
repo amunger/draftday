@@ -9,14 +9,16 @@ var scraper = function (options){
 	var urlBuilder = options.urlBuilder;
 	
 	this.getPlayerData = function(waitSeconds) {
+		if (!waitSeconds && waitSeconds !== 0)
+			waitSeconds = 5
 		var pages = [];
 		var offset = 1;
 		var data = httpTool.getBodyForRequest(urlBuilder.build(offset));
 		saveRawOutput(data, offset);
-		pages.push(data);
+		if (data) pages.push(data);
 		
 		while(data && offset < 2000){
-			sleep(waitSeconds || 5);
+			sleep(waitSeconds);
 			offset = offset + 25;
 			data = httpTool.getBodyForRequest(urlBuilder.build(offset));
 			pages.push(data);
