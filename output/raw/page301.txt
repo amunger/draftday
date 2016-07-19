@@ -1,0 +1,517 @@
+<!doctype html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7 skinId-1"  lang="lang-en" id="template" > <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7 gt6 skinId-1" lang="lang-en" id="template"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8 gt6 gt7 skinId-1" lang="lang-en" id="template"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9 gt6 gt7 gt8 skinId-1" lang="lang-en" id="template"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html itemscope itemtype="http://schema.org/Organization" lang="lang-en" class="not-ie skinId-1" id="template">
+<!--<![endif]-->
+<head><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XAIPVl5WGwcFU1RVDgI="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
+    
+<!-- app dynamics random number = 1 -->
+    <!-- yui video groups from NDC -->
+    <script src="http://combine.nflcdn.com/yui/min2/index.php?g=video"></script><script src="http://p.nfltags.com/omniture/VisitorAPI.js"></script>
+    <script src="/static/js/e0c04f87c142e7639c35758e10cee78b.js" charset="utf-8"></script>
+    <script src="/min/index1?a=d7384502-404f-11e5-a151-feff819cdc9f&g=ff-base"></script><script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+        var gads = document.createElement("script");
+        gads.async = true;
+        gads.type = "text/javascript";
+        var useSSL = "https:" == document.location.protocol;
+        gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+        var node =document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
+</script>    <script>
+    (function (w) {
+
+        var FF = w.FF = w.FF || {};
+        FF.constants = {
+            AD_ORD:         1468854592,
+            ENV:            "production",
+            RENDER_START:   new Date(),
+            TIME:           1468858192000,
+            MODAL_LOGIN_ENABLED: false,
+            PLAYER_CARD_FEATURE: "",
+            USERNAME: 'false'
+        };
+
+    }(window));
+    </script>
+    <!-- Loads the NFL constants -->
+    <script src="/static/js/9c8f677cd6752825f9ab683f54e9cd3a.js"></script>
+    <script>
+      // Overwrite nfl constants with system defaults.
+      window.nfl.constants.ID_MANAGER = 'https://sso.nfl.com/login';
+    </script>
+    <title>Draft Breakdown - 2016 Free Fantasy Football - NFL.com</title>
+    <meta name="msvalidate.01" content="EDD46A4B9FD14F0A47471FDE9821BA49"/>    <!-- print css --!> 
+        <!-- shared css -->
+        <link rel="stylesheet" type="text/css" href="/static/css/1461791988/cHVyZS1taW4uY3NzO3lyZXNldC5jc3M7Zm9udHMuY3NzO3NpdGUuY3NzO2ZvbnRmYWNlLmNzcztvdmVybGF5LmNzczt0YWJsZS5jc3M7cGFnaW5hdGlvbi5jc3M7Y2x1YkltYWdlcy5jc3M7bmZsTmF2LmNzcztmb3Jtc05vTGVzcy5jc3M7Zm9vdGVyLmNzcztwbGF5ZXJDYXJkLmNzcztkeW5hbWljRXJyb3IuY3NzO2Vycm9ycy5jc3M7dmlkZW8uY3NzO21pc2NQdHMuY3NzO25hdkJhci5jc3M7cG9zaXRpb24tbmF2LmNzcztuYXYtYmFyLmNzczt0YWJCYXIuY3NzO3RhYi1iYXIuY3NzO2xlYXJuTW9yZS5jc3M7ZmVlZGJhY2suY3NzO3BhcnRuZXJzLWxvZ2luLmNzcztwb3B1cC5jc3M7bW9kYWwtbG9naW4uY3NzO2ZhbnRhc3ktaGVhZGVyLmNzcztmZi1zYXAtbW9kYWwuY3Nz.css" />
+        <!-- page css  -->
+        <!-- main css file -->
+    <link rel="stylesheet" type="text/css" href="/static/css/1414017725/YW5hbHlzaXNBbmRPcGluaW9ucy5jc3M7ZHJhZnRDZW50ZXIuY3NzO3Bvc2l0aW9uTmF2LmNzcw...css" />
+    
+
+    </head>
+
+<body id="draftCenterBreakdownPage" class="noJs yui-skin-sam yui3-skin-sam g-b">
+
+
+<div id="doc">
+        <div id="hd-wrap">
+        <div id="hd">
+            <div class="fantasy-header">
+
+    <div class="fantasy-header-inner">
+
+        <!--
+        <ul class="fantasy-header-mast pure-g">
+            <a class="fantasy-header-logo" href="http://www.nfl.com" target="_blank"></a>
+            <li class="fantasy-header-title pure-u-7-12">
+                <a href="/">Fantasy</a>
+
+                
+            </li>
+            <li class="fantasy-header-signin">
+                <ul><li class="sso first"><a href="https://sso.nfl.com/login?s=fantasy&returnTo=http%3A%2F%2Ffantasy.nfl.com%2Fdraftcenter%2Fbreakdown%3FleagueId%3D%26offset%3D301%26position%3Dall%26season%3D2016%26sort%3DdraftAveragePosition" >Sign In</a></li><li class="sso last"><a href="https://sso.nfl.com/register?s=fantasy&returnTo=http%3A%2F%2Ffantasy.nfl.com%2Fdraftcenter%2Fbreakdown%3FleagueId%3D%26offset%3D301%26position%3Dall%26season%3D2016%26sort%3DdraftAveragePosition" >Register</a></li></ul>            </li>
+        </ul>
+        -->
+
+        <div class="fantasy-header-mast pure-g">
+
+            <div class="fantasy-header-title pure-u-7-12">
+                                    <a class="fantasy-header-logo red-white-blue" href="http://www.nfl.com" target="_blank"></a>
+                                <a class="fantasy-header-title-text" title="The official free fantasy football game of the NFL" href="http://fantasy.nfl.com">Fantasy</a>
+                            </div>
+            <div class="fantasy-header-signin pure-u-5-12">
+                                <ul><li class="sso first"><a href="https://sso.nfl.com/login?s=fantasy&returnTo=http%3A%2F%2Ffantasy.nfl.com%2Fdraftcenter%2Fbreakdown%3FleagueId%3D%26offset%3D301%26position%3Dall%26season%3D2016%26sort%3DdraftAveragePosition" >Sign In</a></li><li class="sso last"><a href="https://sso.nfl.com/register?s=fantasy&returnTo=http%3A%2F%2Ffantasy.nfl.com%2Fdraftcenter%2Fbreakdown%3FleagueId%3D%26offset%3D301%26position%3Dall%26season%3D2016%26sort%3DdraftAveragePosition" >Register</a></li></ul>            </div>
+
+        </div>
+
+        
+    </div>
+</div>
+<div id="fantasy-nav" class="mod dynamicModule">
+    <div class="content">
+        <div class="hd">
+            <ul><li class="navItem first"><a href="/"  class="navHome" title="Fantasy Football 2016"><span class="effect"></span><span class="text">Fantasy '16</span></a></li><li class="navItem selected"><a href="/draftcenter"  class="navDraft"><span class="effect"></span><span class="text">Draft Center</span></a></li><li class="navItem last"><a href="/research"  class="navResearch"><span class="effect"></span><span class="text">Research</span></a></li></ul>        </div>
+        <div class="bd">
+
+        </div>
+        <div class="ft">
+
+            
+                    </div>
+    </div>
+</div>
+
+<div id="subNav" class="mod">
+    <div class="content">
+        <div class="bd">
+            <ul><li class="first"><a href="/draftcenter" >Home</a></li><li class="selected"><a href="/draftcenter/breakdown" >Breakdown</a></li><li><a href="/draftcenter/mockdrafts" >Mock Drafts</a></li><li><a href="/draftcenter/livedraftlobby" >Live Draft Lobby</a></li><li class="last"><a href="/draftcenter/help" >How to Draft</a></li></ul>        </div>
+    </div>
+</div><noscript>
+    <div id="noJsMessage">
+        <p>Free Fantasy Football | 2015 Fantasy Football - NFL.com relies heavily on Javascript.</p>
+        <p class="last">For the ultimate experience please enable Javascript in your browser.</p>
+    </div>
+</noscript>
+        </div>
+    </div>
+            <div id="subHd">
+        <style>
+    .g-a #bd, .g-b #bd, .g-c #bd { padding-top: 20px; }
+    #bd h1.title { display: none; }
+</style>
+<div class="subHeaderTOPPERcontainer">
+    <h1>Draft Breakdown</h1>
+    <span class="halfBg"></span>
+    <div id="googleadtag-TOPPER2001570005" class="ad ad-TOPPER" style="width: 500px; height: 70px;" >
+    <script >
+    if (window.googletag) {
+        googletag.cmd.push(function() {
+            var path = "/4595/nfl.freefantasy/draftcenter/breakdown",
+                size = [500, 70],
+                id = "googleadtag-TOPPER2001570005",
+                pubService = googletag.pubads();
+
+            pubService.collapseEmptyDivs();
+            pubService.enableAsyncRendering();
+
+            googletag.defineSlot(path, size, id).
+                addService(pubService).
+                setTargeting('s1', 'draftcenter').setTargeting('s2', 'breakdown').
+                setTargeting("slot", "spon").
+                setTargeting("test", "").
+                setTargeting('class', 'subHeaderTOPPER').
+                setTargeting("url", "draftcenter_breakdown");
+            googletag.enableServices();
+            googletag.display(id);
+        });
+    }
+    </script>
+</div>
+</div>    </div>
+            <div id="bd-wrap">
+    <div id="bd">
+
+        
+        
+        <h1 class='title'>Draft Breakdown</h1>
+
+        
+                            <div id="primary"><div id="primaryContent">
+                <div id="draftCenterBreakdown" class="mod dynamicModule history-draftCenterBreakdown cache-* moduleName-draftCenterBreakdown">
+    <div class="content">
+        <div class="hd">
+            <div class="position-nav nav-bar">
+                <ul><li id="posAll" class="selected first"><a href="/draftcenter/breakdown"  class="dynamic"><span>All Players</span></a></li><li id="pos1"><a href="/draftcenter/breakdown?position=1"  class="dynamic"><span>QB</span></a></li><li id="pos2"><a href="/draftcenter/breakdown?position=2"  class="dynamic"><span>RB</span></a></li><li id="pos3"><a href="/draftcenter/breakdown?position=3"  class="dynamic"><span>WR</span></a></li><li id="pos4"><a href="/draftcenter/breakdown?position=4"  class="dynamic"><span>TE</span></a></li><li id="pos5"><a href="/draftcenter/breakdown?position=5"  class="dynamic"><span>W/R</span></a></li><li id="pos7"><a href="/draftcenter/breakdown?position=7"  class="dynamic"><span>K</span></a></li><li id="pos8" class="last"><a href="/draftcenter/breakdown?position=8"  class="dynamic"><span>DEF</span></a></li></ul>            </div>
+            <div class="paginationWrap">
+                <div class="pagination search"><span class="paginationTitle"> 301 - 325 of 868 </span><ul><li class="prev first"><a href="?leagueId=&offset=276&position=all&season=2016&sort=draftAveragePosition"  class="dynamic"><</a></li><li class="pageNav-pageNav-8"><a href="?leagueId=&offset=201&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">9</a></li><li class="pageNav-pageNav-9"><a href="?leagueId=&offset=226&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">10</a></li><li class="pageNav-pageNav-10"><a href="?leagueId=&offset=251&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">11</a></li><li class="pageNav-pageNav-11"><a href="?leagueId=&offset=276&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">12</a></li><li class="pageNav-pageNav-12"><span class="dynamic">13</span></li><li class="pageNav-pageNav-13"><a href="?leagueId=&offset=326&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">14</a></li><li class="pageNav-pageNav-14"><a href="?leagueId=&offset=351&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">15</a></li><li class="pageNav-pageNav-15"><a href="?leagueId=&offset=376&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">16</a></li><li class="pageNav-pageNav-16"><a href="?leagueId=&offset=401&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">17</a></li><li class="next last"><a href="?leagueId=&offset=326&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">></a></li></ul></div>            </div>
+        </div>
+        <div class="bd">
+            <div class="tableWrap"><table cellpadding="0" cellspacing="0" class="tableType-players hasGroups"><thead><tr class="first"><th class="playerNameAndInfo first">&nbsp;</th><th class="group draftStandard firstgroup-draftStandard" colspan="2" scope="colgroup"><em><b></b><span>Standard Draft</span></em></th><th class="group draftAuction firstgroup-draftAuction last" scope="colgroup"><em><b></b><span>Auction Draft</span></em></th></tr><tr class="last"><th class="playerNameAndInfo first" scope="col"><a href="/draftcenter/breakdown?leagueId=&position=all&season=2016&sort=name">Player</a></th><th class="playerDraftAvgPick rank numeric sorted" scope="col"><a href="/draftcenter/breakdown?leagueId=&position=all&season=2016&sort=draftAveragePosition">Avg. Pick (ADP)</a></th><th class="playerDraftAvgRound rank numeric" scope="col"><a href="/draftcenter/breakdown?leagueId=&position=all&season=2016&sort=draftAverageRound">Avg. Round</a></th><th class="playerDraftAvgAuctionCost rank numeric last" scope="col"><a href="/draftcenter/breakdown?leagueId=&position=all&season=2016&sort=draftAverageAuctionCost">Avg. Value (AAV)</a></th></tr></thead><tbody><tr class="players-324 odd first"><td class="playerNameAndInfo first"><div class="c c-atl"><b></b><a onclick="return false" href="/players/card?playerId=324" class="playerCard playerName playerNameFull playerNameId-324 what-playerCard">Jacob Tamme</a> <em>TE - ATL</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.86</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2539335 even"><td class="playerNameAndInfo first"><div class="c c-nyj"><b></b><a onclick="return false" href="/players/card?playerId=2539335" class="playerCard playerName playerNameFull playerNameId-2539335 what-playerCard">Geno Smith</a> <em>QB - NYJ</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2552633 odd"><td class="playerNameAndInfo first"><div class="c c-pit"><b></b><a onclick="return false" href="/players/card?playerId=2552633" class="playerCard playerName playerNameFull playerNameId-2552633 what-playerCard">Jesse James</a> <em>TE - PIT</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2506313 even"><td class="playerNameAndInfo first"><div class="c c-ne"><b></b><a onclick="return false" href="/players/card?playerId=2506313" class="playerCard playerName playerNameFull playerNameId-2506313 what-playerCard">Nate Washington</a> <em>WR - NE</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2555419 odd"><td class="playerNameAndInfo first"><div class="c c-la"><b></b><a onclick="return false" href="/players/card?playerId=2555419" class="playerCard playerName playerNameFull playerNameId-2555419 what-playerCard">Pharoh Cooper</a> <em>WR - LA</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2552429 even"><td class="playerNameAndInfo first"><div class="c c-gb"><b></b><a onclick="return false" href="/players/card?playerId=2552429" class="playerCard playerName playerNameFull playerNameId-2552429 what-playerCard">Ty Montgomery</a> <em>WR - GB</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">2</td></tr><tr class="players-2537933 odd"><td class="playerNameAndInfo first"><div class="c c-nyg"><b></b><a onclick="return false" href="/players/card?playerId=2537933" class="playerCard playerName playerNameFull playerNameId-2537933 what-playerCard">Larry Donnell</a> <em>TE - NYG</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2495159 even"><td class="playerNameAndInfo first"><div class="c c-nyg"><b></b><a onclick="return false" href="/players/card?playerId=2495159" class="playerCard playerName playerNameFull playerNameId-2495159 what-playerCard">Dwayne Harris</a> <em>WR - NYG</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">0</td></tr><tr class="players-768 odd"><td class="playerNameAndInfo first"><div class="c c-sd"><b></b><a onclick="return false" href="/players/card?playerId=768" class="playerCard playerName playerNameFull playerNameId-768 what-playerCard">Steve Johnson</a> <em>WR - SD</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.87</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2555461 even"><td class="playerNameAndInfo first"><div class="c c-phi"><b></b><a onclick="return false" href="/players/card?playerId=2555461" class="playerCard playerName playerNameFull playerNameId-2555461 what-playerCard">Wendell Smallwood</a> <em>RB - PHI</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.88</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2552463 odd"><td class="playerNameAndInfo first"><div class="c c-hou"><b></b><a onclick="return false" href="/players/card?playerId=2552463" class="playerCard playerName playerNameFull playerNameId-2552463 what-playerCard">Jaelen Strong</a> <em>WR - HOU</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.88</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2552415 even"><td class="playerNameAndInfo first"><div class="c c-was"><b></b><a onclick="return false" href="/players/card?playerId=2552415" class="playerCard playerName playerNameFull playerNameId-2552415 what-playerCard">Jamison Crowder</a> <em>WR - WAS</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.89</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">0</td></tr><tr class="players-2552468 odd"><td class="playerNameAndInfo first"><div class="c c-bal"><b></b><a onclick="return false" href="/players/card?playerId=2552468" class="playerCard playerName playerNameFull playerNameId-2552468 what-playerCard">Maxx Williams</a> <em>TE - BAL</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.89</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">3</td></tr><tr class="players-497238 even"><td class="playerNameAndInfo first"><div class="c c-ari"><b></b><a onclick="return false" href="/players/card?playerId=497238" class="playerCard playerName playerNameFull playerNameId-497238 what-playerCard">Jermaine Gresham</a> <em>TE - ARI</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.89</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2540145 odd"><td class="playerNameAndInfo first"><div class="c c-min"><b></b><a onclick="return false" href="/players/card?playerId=2540145" class="playerCard playerName playerNameFull playerNameId-2540145 what-playerCard">Cordarrelle Patterson</a> <em>WR - MIN</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.89</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2495341 even"><td class="playerNameAndInfo first"><div class="c c-hou"><b></b><a onclick="return false" href="/players/card?playerId=2495341" class="playerCard playerName playerNameFull playerNameId-2495341 what-playerCard">Cecil Shorts</a> <em>WR - HOU</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2533032 odd"><td class="playerNameAndInfo first"><div class="c c-bal"><b></b><a onclick="return false" href="/players/card?playerId=2533032" class="playerCard playerName playerNameFull playerNameId-2533032 what-playerCard">Trent Richardson</a> <em>RB - BAL</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2555260 even"><td class="playerNameAndInfo first"><div class="c c-dal"><b></b><a onclick="return false" href="/players/card?playerId=2555260" class="playerCard playerName playerNameFull playerNameId-2555260 what-playerCard">Dak Prescott</a> <em>QB - DAL</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-89802 odd"><td class="playerNameAndInfo first"><div class="c c-ten"><b></b><a onclick="return false" href="/players/card?playerId=89802" class="playerCard playerName playerNameFull playerNameId-89802 what-playerCard">Ryan Succop</a> <em>K - TEN</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2550738 even"><td class="playerNameAndInfo first"><div class="c c-pit"><b></b><a onclick="return false" href="/players/card?playerId=2550738" class="playerCard playerName playerNameFull playerNameId-2550738 what-playerCard">Fitzgerald Toussaint</a> <em>RB - PIT</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">0</td></tr><tr class="players-2553117 odd"><td class="playerNameAndInfo first"><div class="c c-noteam"><b></b><a onclick="return false" href="/players/card?playerId=2553117" class="playerCard playerName playerNameFull playerNameId-2553117 what-playerCard">Jarryd Hayne</a> <em>RB</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">0</td></tr><tr class="players-2555364 even"><td class="playerNameAndInfo first"><div class="c c-la"><b></b><a onclick="return false" href="/players/card?playerId=2555364" class="playerCard playerName playerNameFull playerNameId-2555364 what-playerCard">Tyler Higbee</a> <em>TE - LA</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">0</td></tr><tr class="players-71217 odd"><td class="playerNameAndInfo first"><div class="c c-la"><b></b><a onclick="return false" href="/players/card?playerId=71217" class="playerCard playerName playerNameFull playerNameId-71217 what-playerCard">Kenny Britt</a> <em>WR - LA</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">0</td></tr><tr class="players-2495441 even"><td class="playerNameAndInfo first"><div class="c c-sf"><b></b><a onclick="return false" href="/players/card?playerId=2495441" class="playerCard playerName playerNameFull playerNameId-2495441 what-playerCard">Blaine Gabbert</a> <em>QB - SF</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">1</td></tr><tr class="players-2556118 odd last"><td class="playerNameAndInfo first"><div class="c c-det"><b></b><a onclick="return false" href="/players/card?playerId=2556118" class="playerCard playerName playerNameFull playerNameId-2556118 what-playerCard">Dwayne Washington</a> <em>RB - DET</em>    </div></td><td class="playerDraftAvgPick rank numeric sorted">150.90</td><td class="playerDraftAvgRound rank numeric">16</td><td class="playerDraftAvgAuctionCost rank numeric last">2</td></tr></tbody></table></div>        </div>
+        <div class="ft paginationWrap">
+            <div class="pagination search"><span class="paginationTitle"> 301 - 325 of 868 </span><ul><li class="prev first"><a href="?leagueId=&offset=276&position=all&season=2016&sort=draftAveragePosition"  class="dynamic"><</a></li><li class="pageNav-pageNav-8"><a href="?leagueId=&offset=201&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">9</a></li><li class="pageNav-pageNav-9"><a href="?leagueId=&offset=226&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">10</a></li><li class="pageNav-pageNav-10"><a href="?leagueId=&offset=251&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">11</a></li><li class="pageNav-pageNav-11"><a href="?leagueId=&offset=276&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">12</a></li><li class="pageNav-pageNav-12"><span class="dynamic">13</span></li><li class="pageNav-pageNav-13"><a href="?leagueId=&offset=326&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">14</a></li><li class="pageNav-pageNav-14"><a href="?leagueId=&offset=351&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">15</a></li><li class="pageNav-pageNav-15"><a href="?leagueId=&offset=376&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">16</a></li><li class="pageNav-pageNav-16"><a href="?leagueId=&offset=401&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">17</a></li><li class="next last"><a href="?leagueId=&offset=326&position=all&season=2016&sort=draftAveragePosition"  class="dynamic">></a></li></ul></div>        </div>
+    </div>
+</div>
+
+            </div></div><div id="secondary"><div id="secondaryContent">
+                <div id="googleadtag-LREC33861458" class="ad ad-LREC" style="width: 300px; height: 250px;" >
+    <script >
+    if (window.googletag) {
+        googletag.cmd.push(function() {
+            var path = "/4595/nfl.freefantasy/draftcenter/breakdown",
+                size = [300, 250],
+                id = "googleadtag-LREC33861458",
+                pubService = googletag.pubads();
+
+            pubService.collapseEmptyDivs();
+            pubService.enableAsyncRendering();
+
+            googletag.defineSlot(path, size, id).
+                addService(pubService).
+                setTargeting('s1', 'draftcenter').setTargeting('s2', 'breakdown').
+                setTargeting("slot", "top").
+                setTargeting("test", "").
+                
+                setTargeting("url", "draftcenter_breakdown");
+            googletag.enableServices();
+            googletag.display(id);
+        });
+    }
+    </script>
+</div>
+<div id="expertsAnalysisAndOpinions" class="mod analysisAndOpinions">
+    <div class="content">
+        <div class="hd">
+            <h4>NFL.com Fantasy Experts</h4>
+        </div>
+        <div class="bd">
+            <h5 class="fabiano">Michael Fabiano</h5>
+            <div class="metadata">
+                <em>Fantasy Editor for NFL.com</em>
+                <ul><li class="first">Follow:</li><li><a href="http://twitter.com/Michael_Fabiano"  target="_blank">Twitter</a></li><li class="last"><a href="http://blogs.nfl.com/category/fantasy/"  target="_blank">Blog</a></li></ul>            </div>
+            <div class="articles">
+                <ul><li class="first"><a href="http://www.nfl.com/fantasyfootball/story/0ap3000000674859/article/mark-ingram-among-mustown-fantasy-running-backs"  target="_blank">Mark Ingram among must-own fantasy running backs</a></li><li><a href="http://www.nfl.com/fantasyfootball/story/0ap3000000674857/article/aj-green-donte-moncrief-lead-mustown-wrs"  target="_blank">A.J. Green, Donte Moncrief lead must-own WRs</a></li><li class="last"><a href="http://www.nfl.com/fantasyfootball/story/0ap3000000674264/article/rob-gronkowski-greg-olsen-lead-musthave-tes"  target="_blank">Must-own fantasy TEs</a></li></ul>            </div>
+            <div class="more">
+                <a href="http://www.nfl.com/fantasyfootball" class="mc" target="_blank">More Columns</a>
+                <!--a href="http://www.nfl.com/rss/rsslanding?searchString=author&id=09000d5d800219d7&name=Michael%20Fabiano" class="sub" target="_blank">Subscribe</a-->
+            </div>
+        </div>
+        <!--
+        <div class="ft">
+            <div id="googleadtag-PROMO442926804" class="ad ad-PROMO" style="width: 300px; height: 100px;" >
+    <script >
+    if (window.googletag) {
+        googletag.cmd.push(function() {
+            var path = "/4595/nfl.freefantasy/draftcenter/breakdown",
+                size = [300, 100],
+                id = "googleadtag-PROMO442926804",
+                pubService = googletag.pubads();
+
+            pubService.collapseEmptyDivs();
+            pubService.enableAsyncRendering();
+
+            googletag.defineSlot(path, size, id).
+                addService(pubService).
+                setTargeting('s1', 'draftcenter').setTargeting('s2', 'breakdown').
+                setTargeting("slot", "top").
+                setTargeting("test", "").
+                setTargeting('class', 'first').
+                setTargeting("url", "draftcenter_breakdown");
+            googletag.enableServices();
+            googletag.display(id);
+        });
+    }
+    </script>
+</div>                    </div>
+        -->
+    </div>
+</div>
+            </div></div>
+                        
+                        <div class="sh s"></div>
+        <div class="sh t"></div>
+        </div>
+
+    </div>
+            <div id="ft-wrap">
+        <div id="ft">
+            <meta data-temp="" name="viewport" content="width=1030" />
+
+<div id="footer" class="mod"> 
+    <div class="content"> 
+        <div class="hd nflprograms"> 
+            <h4><a href="http://www.nfl.com" target="_blank">NFL</a></h4> 
+            <ul><li class="first"><ul><li class="first"><a href="http://nflrush.com/?campaign=NFL_footer"  target="_blank">NFLRush.com</a></li><li><a href="http://www.nfl.com/play60"  target="_blank">NFL PLAY 60</a></li><li><a href="http://nflplayers.com/"  target="_blank">NFLPlayers.com</a></li><li><a href="http://www.nflyouthpd.com/"  target="_blank">NFL Youth Tackle</a></li><li><a href="http://profootballhof.com/"  target="_blank">Profootballhof.com</a></li><li class="last"><a href="http://www.usafootball.com/"  target="_blank">USA Football</a></li></ul></li><li class="last"><ul><li class="first"><a href="http://www.nflshop.com/entry.point?target=z&source=NFL_SHOP_TAB_BOTTOM_BANNER"  target="_blank">NFL Shop</a></li><li><a href="http://www.nflauction.nfl.com/"  target="_blank">NFL Auction</a></li><li><a href="http://www.nfl.com/nflnetwork"  target="_blank">NFL Network</a></li><li><a href="http://www.nflonlocation.net"  target="_blank">NFL On Location</a></li><li class="last"><a href="http://www.jointheteam.com/"  target="_blank">In The Community</a></li></ul></li></ul>        </div> 
+        <div class="bd afc"> 
+            <h4>AFC</h4> 
+            <ul><li class="first"><ul><li class="first"><a href="http://www.buffalobills.com/"  target="_blank">Bills</a></li><li><a href="http://www.miamidolphins.com/"  target="_blank">Dolphins</a></li><li><a href="http://www.patriots.com/"  target="_blank">Patriots</a></li><li class="last"><a href="http://www.newyorkjets.com/"  target="_blank">Jets</a></li></ul></li><li><ul><li class="first"><a href="http://www.baltimoreravens.com/"  target="_blank">Ravens</a></li><li><a href="http://www.bengals.com/"  target="_blank">Bengals</a></li><li><a href="http://www.clevelandbrowns.com/"  target="_blank">Browns</a></li><li class="last"><a href="http://www.steelers.com/"  target="_blank">Steelers</a></li></ul></li><li><ul><li class="first"><a href="http://www.titansonline.com/"  target="_blank">Titans</a></li><li><a href="http://www.houstontexans.com/"  target="_blank">Texans</a></li><li><a href="http://www.colts.com/"  target="_blank">Colts</a></li><li class="last"><a href="http://www.jaguars.com/"  target="_blank">Jaguars</a></li></ul></li><li class="last"><ul><li class="first"><a href="http://www.denverbroncos.com/"  target="_blank">Broncos</a></li><li><a href="http://www.kcchiefs.com/"  target="_blank">Chiefs</a></li><li><a href="http://www.raiders.com/"  target="_blank">Raiders</a></li><li class="last"><a href="http://www.chargers.com/"  target="_blank">Chargers</a></li></ul></li></ul>        </div> 
+        <div class="ft nfc"> 
+            <h4>NFC</h4> 
+            <ul><li class="first"><ul><li class="first"><a href="http://www.dallascowboys.com/"  target="_blank">Cowboys</a></li>
+                        <li><a href="http://www.giants.com/"  target="_blank">Giants</a></li>
+                        <li><a href="http://www.philadelphiaeagles.com/"  target="_blank">Eagles</a></li>
+                        <li class="last"><a href="http://www.redskins.com/"  target="_blank">Redskins</a></li></ul></li><li><ul><li class="first"><a href="http://www.chicagobears.com/"  target="_blank">Bears</a></li><li><a href="http://www.detroitlions.com/"  target="_blank">Lions</a></li><li><a href="http://www.packers.com/"  target="_blank">Packers</a></li><li class="last"><a href="http://www.vikings.com/"  target="_blank">Vikings</a></li></ul></li><li><ul><li class="first"><a href="http://www.atlantafalcons.com/"  target="_blank">Falcons</a></li><li><a href="http://www.panthers.com/"  target="_blank">Panthers</a></li><li><a href="http://www.neworleanssaints.com/"  target="_blank">Saints</a></li><li class="last"><a href="http://www.buccaneers.com/"  target="_blank">Buccaneers</a></li></ul></li><li class="last"><ul><li class="first"><a href="http://www.therams.com/"  target="_blank">Rams</a></li><li><a href="http://www.azcardinals.com/"  target="_blank">Cardinals</a></li><li><a href="http://www.sf49ers.com/"  target="_blank">49ers</a></li><li class="last"><a href="http://www.seahawks.com/"  target="_blank">Seahawks</a></li></ul></li></ul>        </div>
+    </div> 
+</div> 
+
+
+
+<script type="text/javascript">
+/** Set Report Suite Environment Variable **/
+var s_account="cbsnfl,nflglobal";
+
+/* Adobe Tag Container Loader version: 1.0.7
+Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com */
+var s_analytics=new TagContainerLoader()
+s_analytics.tagContainerDC="d1"
+s_analytics.tagContainerNamespace="nfl"
+s_analytics.tagContainerName="prodscode"
+s_analytics.loadTagContainer()
+
+var s=new TagContainerLoader()
+s.tagContainerDC="d1"
+s.tagContainerNamespace="nfl"
+s.tagContainerName="fantasyconversion"
+s.loadTagContainer()
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+function TagContainerLoader(){var t=this,w=t.w=window;t.d=w.document;t._c='s_l';if(!w.s_c_il){w.s_c_il=[];w.s_c_in=0}t._il=w.s_c_il;t._in=w.s_c_in;t._il[t._in]=t;w.s_c_in++;t.timeout=5000;t.to=
+new Function('var t=s_c_il['+t._in+'];if(t.mt)t.mt(0)');t.loadTagContainer=function(){var t=this,l,p=t.d.body,n,a=t.tagContainerServer?t.tagContainerServer:'www.adobetag.com',b=
+t.tagContainerServerSecure?t.tagContainerServerSecure:a,c=t.d.cookie,d=t.tagContainerEnv?t.tagContainerEnv:(c?(c.indexOf('s_tagEnv=dev')>=0?'dev':(c.indexOf('s_tagEnv=stage')>=0?'stage':'live')):
+'live'),u=(t.w.location.protocol.toLowerCase().indexOf('https')>=0?'https://'+b:'http://'+a)+'/'+(t.tagContainerDC?t.tagContainerDC+'/':'')+t.tagContainerNamespace+'/'+d+'/'+t.tagContainerName+'.js'
+if(t.tagContainerURL)u=t.tagContainerURL;if(t.timeout)t.ti=setTimeout(t.to,t.timeout);if(t.d.getElementsByTagName){l=t.d.getElementsByTagName('HEAD');if(l&&l[0])p=l[0]}else p=0;if(
+p&&!t.tagContainerSynchronous){n=t.d.createElement('SCRIPT');if(n){n.type='text/javascript';n.setAttribute('async','async');n.src=u;if(p.firstChild)p.insertBefore(n,p.firstChild);else p.appendChild(n)
+}}else t.d.write('<sc'+'ript language="JavaScript" type="text/javascript" sr'+'c="'+u+'"></sc'+'ript>')};t.fs=function(x,y){if(x&&y){var a=x.split(','),b=y.split(','),i,j;for(i=0;i<a.length;i++){
+for(j=0;j<b.length;j++)if(a[i]==b[j])return 1}}return 0};t.aa=function(a){var b=0,i;if(a){b=[];for(i=0;i<a.length;i++)b[i]=a[i]}return b};t.wl=[];t.wq=[];t.createAsynchronousCustomTagHandler=function(
+o,f){var t=this,x,i;if(!f){f=o;o=0;x=t.w}else{if(!t.w[o])t.w[o]={};x=t.wl[o]=t.w[o]}if(typeof(f)!='object')f=[f];for(i=0;i<f.length;i++)if(!x[f[i]])x[f[i]]=new Function('var t=s_c_il['+t._in+
+'];t.wq[t.wq.length]={'+(o?'o:"'+o+'",':'')+'f:"'+f[i]+'",a:t.aa(arguments)}')};t.as=function(x){var y=[],i;for(i=1;i<x.length;i++)y[y.length]=x[i];return y};t.s=0;t.contextData={}
+t.retrieveLightData={};if(!w.s_giq)w.s_giq=[];t._gi=w.s_gi;w.s_gi=new Function('u','var t=s_c_il['+t._in+
+'],w=t.w,l=t._il,i,j,x,s;u=u.toLowerCase();if(l)for(j=0;j<2;j++)for(i=0;i<l.length;i++){s=l[i];x=s._c;if((!x||x=="s_c"||(j>0&&x=="s_l"))&&s.oun&&(s.oun==u||(s.fs&&s.sa&&s.fs(s.oun,u)))){'+
+'if(s.sa)s.sa(u);return s}}if(!t.oun){t.sa(u);return t}if(t._gi)return t._gi(u);s=new TagContainerLoader();s.tagContainerName="s_tca_"+w.s_giq.length;s.sa(u);w.s_giq[w.s_giq.length]=s;return s');t.sa=
+function(u){var t=this;if(t.s)t.s.sa(u);t.un=u;if(!t.oun)t.oun=u;else if(!t.fs(t.oun,u))t.oun+=','+u};t.tq=[];t.track=t.t=function(vo){var t=this,m;if(t.s)return t.s.t(vo);if(!vo)vo={};for(m in t){if(
+m!='un'||t.u!=t.un)vo[m]=t[m]}t.tq[t.tq.length]=vo;t.lnk=t.linkName=t.linkType='';return '';};t.trackLink=t.tl=function(o,u,n,vo){var t=this;if(t.s)return t.s.tl(o,u,v,vo);t.lnk=o;t.linkType=u
+t.linkName=n;return t.t(vo)};t.trackLight=function(p,ss,i,vo){var t=this;if(t.s)return t.s.trackLight(p,ss,i,vo);t.lightProfileID=p;t.lightStoreForSeconds=ss;t.lightIncrementBy=i;return t.t(vo)}
+t.lmq=[];t.loadModule=function(n,u,d){var t=this;if(t.s)return t.s.loadModule(n,u,d);t.lmq[t.lmq.length]={n:n,u:u,d:d};return 0};t.ml=[];t.mmq=[];t.mo=function(m,f){var t=this,i;t.ml[m]=t[m]={};if(f)
+for(i=0;i<f.length;i++)t[m][f[i]]=new Function('var t=s_c_il['+t._in+'];t.mmq[t.mmq.length]={m:"'+m+'",f:"'+f[i]+'",a:t.aa(arguments)}')};t.mo('Media',['open','play','stop','close','track']);t.mo(
+'Survey',['launch']);t.mci=[];t.mn=[];t.mc=function(n,m,p,k){var t=this,b,l=0;if(typeof(mboxFactoryDefault)=='undefined'||t.d.getElementById(m)==null)return;if(!mboxFactoryDefault.isEnabled()){
+clearInterval(t.mci[k]);t.mt(true);return}if(typeof(mboxFactoryDefault.get(t.mn[0],0))!='undefined')l=mboxFactoryDefault.get(t.mn[0],0).isShown();if(k==0||l){clearInterval(t.mci[k]);b=
+mboxFactoryDefault.create(n,p.split("&"));if(b)b.load()}};if(!w.mboxCreate&&!w.mboxDefine&&!w.mboxUpdate){w.mboxVersion='mini';if(!t.d.getElementById('mboxScriptContainer'))t.d.write(
+'<div id="mboxScriptContainer" style="display:none;visibility:hidden;"></div><style>.mboxDefault{visibility:hidden;}</style>');t.mt=function(f){var t=this,i,j,d;if(typeof(mboxFactoryDefault)==
+'undefined'||f){for(i in t.mci)clearInterval(t.mci[i]);d=(t.d.getElementsByClassName)?t.d.getElementsByClassName('mboxDefault'):t.d.getElementsByTagName('div');for(j in d)if(d[j].className==
+"mboxDefault")d[j].style.visibility="visible"}};t.mpi={};t.mp=function(x,m){var t=this;t.mpi[x]=setInterval(function(){if(typeof(mboxFactoryDefault)==='undefined')return;m();clearInterval(t.mpi[x])},
+13)};w.mboxCreate=function(n){var j=0,i,m,p,k;for(i in t.mn)if(t.mn[i]==n)j++;t.mn[t.mn.length]=n;m='mboxMarker-default-'+n+'-'+j;t.d.write('<div id="'+m+
+'" style="visibility:hidden;display:none">&nbsp;</div>');p=t.as(arguments).join("&");k=t.mci.length;t.mci[k]=setInterval(function(){t.mc(n,m,p,k);},5)};w.mboxDefine=function(d,n){var a=t.as(arguments)
+t.mp('define_'+n,function(){mboxFactoryDefault.create(n,a,d);})};w.mboxUpdate=function(n){var a=t.as(arguments),x;x='update_'+n;t.mpi[x]=setInterval(function(){if(typeof(mboxFactoryDefault)===
+'undefined'||typeof(mboxFactoryDefault.get(n))==='undefined')return;mboxFactoryDefault.update(n,a);clearInterval(t.mpi[x]);},13)};w.mboxLoadSCPlugin=function(s){(function(){if(typeof(
+mboxFactoryDefault)==='undefined'||typeof(mboxExternalLoadSCPlugin)==='undefined'||(s._c=='s_l'&&!s.s)){setTimeout(arguments.callee,19);return}if(s._c=='s_l')s=s.s;mboxExternalLoadSCPlugin(s)})()};}}
+
+<!-- /* Copyright 1997-2004 Omniture, Inc. */
+s_analytics.pageName="nfl:fantasy football:draft center:breakdown"
+s_analytics.channel="fantasy"
+s_analytics.eVar14="nfl:fantasy football:draft center"
+s_analytics.prop2="nfl:fantasy football:draft center"
+s_analytics.prop3="free fantasy"
+s_analytics.hier1="nfl|fantasy football|draft center|breakdown"
+s_analytics.eVar4="nfl|fantasy football|draft center|breakdown"
+s_analytics.prop5="nfl|fantasy football|draft center|breakdown"
+s_analytics.prop22="fantasy"
+s_analytics.prop23="nfl:fantasy"
+s_analytics.server="nfl.com"
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code= s_analytics.t();if(s_code)document.write(s_code)
+//-->
+</script>
+        </div>
+    </div>
+    </div>
+<script type="text/javascript">
+FF.constants.RENDER_END = new Date();
+YEXT = null;
+var SYSTEMENVIRONMENT = "production";
+var ADPATH = "nfl.freefantasy";
+var VIDEOPLAYERFILENAME = "http://s.nflcdn.com/static/site/" + nfl.constants.ASSET_VERSION + "/flash/video/inline-video-player.swf";
+var LEAGUEID = '';
+var TEAMID = '';
+</script>
+<script>
+(function(){
+    // allow groups in scripts to propagate
+    var yConfigGroups = ( window.YUI_config ) ? window.YUI_config.groups : {};
+
+    window.YUI_config = {
+        comboBase : "/min/index1?a=d7384502-404f-11e5-a151-feff819cdc9f&b=static/js/yui/3.15.0/build&f=",        combine : true,
+        comboSep : ",",
+        root : "",
+        timeout: 10000,
+                // filter: 'debug',
+        // gallery: 'gallery-2012.08.01-13-16',
+        modules:  {
+
+            siteSpecific: {
+               fullpath: "/static/js/832265022666e6086417943486d9718c.js",
+               requires: ["plugin"]
+            }
+,            teamManagerAssistCss : {
+                fullpath:'/static/css/1414017725/dGVhbU1hbmFnZXJBc3Npc3QuY3Nz.css',
+                type:'css'
+            }
+        }
+    };
+    window.YUI_config.groups = yConfigGroups;
+
+if (window.nfl) {
+    NFL_config = window.NFL_config || {},
+    YUI_config = window.YUI_config || {};
+
+    // YUI_config.comboBase = 'http://yui.yahooapis.com/combo?';
+    YUI_config.comboBase = "/min/index1?a=d7384502-404f-11e5-a151-feff819cdc9f&b=static/js/yui/3.15.0/build&f="
+    YUI_config.combine = true;
+    YUI_config.comboSep = ",";
+    YUI_config.root = "";
+    YUI_config.modules = YUI_config.modules || {};
+
+    var Constants = nfl.constants;
+    // console.log(Constants);
+    YUI_config.groups.nfl = {
+        base: Constants.SCRIPT_PATH + '/scripts/modules/',
+        combine: true,
+        comboBase: [
+            Constants.NFL_COMBO_URL,
+            "?",
+            encodeURIComponent(Constants.ASSET_VERSION + Constants.ASSET_BUILD),
+            "&b=",
+            encodeURIComponent("yui3/static/" + Constants.ASSET_VERSION + "/scripts/modules"),
+            "&ss=anyraw&f="
+        ].join(""),
+        comboSep: ",",
+        root: "",
+        filter: {
+            searchExp: '([^\\/]+)\\/\\1-min\\.(js|css)',
+            replaceStr: "$1.$2"
+        },
+        modules: {
+            'nfl-carousel': { requires: ['plugin', 'base-build', 'nfl-lang', 'array-extras'], optional: 'anim' },
+            'nfl-centerpiece': { requires: ['node', 'anim', 'widget', 'base-build', 'nfl-lang', 'nfl-carousel', 'nfl-subnav' ], optional: ['nfl-video'] },
+            'nfl-lang': { requires: ['querystring'] },
+            'nfl-pagination': { requires: ['plugin', 'base-build', 'nfl-lang'] },
+            'nfl-subnav': { requires: [ 'node', 'plugin', 'base-build', 'classnamemanager', 'array-extras' ], optional: ['nfl-history-manager'] },
+            'widget-node-builder': { requires: [ 'node-base' ] },
+            'modal-mask': { requires: [ 'base-build', 'base', 'widget', 'widget-stack', 'node' ] },
+            'modal-login': { requires: ['base-build', 'base', 'widget', 'widget-position', 'widget-position-align', 'widget-stack', 'modal-mask', 'widget-node-builder', 'event-touch', 'json-parse', 'transition' ], skinnable : true },
+        }
+    }
+    console.log(YUI_config);
+}
+})();
+YUI( YUI_config ).use("siteSpecific",
+"ads",
+"anim",
+"async-queue",
+"autocomplete",
+"base",
+"cache",
+"dataschema",
+"datasource",
+"dump",
+"dynamic-modules",
+"event",
+"event-custom",
+"event-valuechange",
+"ff-feedback",
+"ff-modal-login",
+"ff-partners-login",
+"ff-player-compare-modal",
+"history",
+"io",
+"json-parse",
+"loader",
+"node",
+"node-event-simulate",
+"overlay",
+"overlay-modal",
+"page-tracking",
+"player",
+"playerCard",
+"plugin",
+"slynode",
+"util",
+"video",
+"widget",
+"widget-position",
+"widget-position-align", function (Y) {
+    FF.constants.YUI_START = new Date();
+    Y.one('#draftCenterBreakdownPage').removeClass('noJs');
+
+        (function () {
+        try { Y.Util.init(document.body) }
+        catch (err) { Y.log('initErrorCatch:' + err.message); return false; }
+    }());
+    (function () {
+        try { Y.FF.Partners.Login.init({"isDefaultLocale":true,"locale":"en_US.utf8","strings":{"default":[],"translated":[]}}) }
+        catch (err) { Y.log('initErrorCatch:' + err.message); return false; }
+    }());
+    (function () {
+        try { Y.PageTracking.init({"pageName":"nfl:fantasy football:draft center:breakdown","channel":"fantasy","eVar14":"nfl:fantasy football:draft center","prop2":"nfl:fantasy football:draft center","prop3":"free fantasy","hier1":"nfl|fantasy football|draft center|breakdown","eVar4":"nfl|fantasy football|draft center|breakdown","prop5":"nfl|fantasy football|draft center|breakdown","prop22":"fantasy","prop23":"nfl:fantasy","server":"nfl.com"}) }
+        catch (err) { Y.log('initErrorCatch:' + err.message); return false; }
+    }());
+    (function () {
+        try { new Y.FF.playerCompareModal({sourceNode: 'body'}).render(); }
+        catch (err) { Y.log('initErrorCatch:' + err.message); return false; }
+    }());
+    (function () {
+        try { Y.Video.init(); }
+        catch (err) { Y.log('initErrorCatch:' + err.message); return false; }
+    }());
+    (function () {
+        try { Y.Player.init(); }
+        catch (err) { Y.log('initErrorCatch:' + err.message); return false; }
+    }());
+    (function () {
+        try { Y.FF.ModalLogin.init(); }
+        catch (err) { Y.log('initErrorCatch:' + err.message); return false; }
+    }());
+
+    window.Y = Y;
+
+    // debug info used in full.php
+    FF.constants.YUI_END = new Date();
+    Y.on('domready', function () {
+        // console.log('YUI domready event fired');
+        FF.constants.DOM_READY = new Date();
+    });
+    Y.on('contentready', function () { FF.constants.CONTENT_READY = new Date(); });
+    Y.on('available', function () { FF.constants.AVAILABLE = new Date(); });
+
+});
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"a222850388","applicationID":"4575793","transactionName":"MQBSbRZUV0BVUkRRVghKcVoQXFZdG1VVXlgTCUQWAEdYVUBSVVZNAxcfWxZQWFhQXkdW","queueTime":0,"applicationTime":152,"atts":"HUdRG15ORE4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<!-- www11 -->
