@@ -1,5 +1,7 @@
 var team = require('./team');
+var Player = require('./player');
 
 module.exports = {
-  team: team
+  Team: team,
+  Player: Player
 }

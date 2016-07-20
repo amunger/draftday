@@ -1,0 +1,51 @@
+'use strict';
+var fs = require('fs');
+var model = require('./model');
+
+var players = function (){
+	var players = [];
+	
+	this.getAll = function(){
+		if (players.length === 0){
+			readInPlayers();
+		}
+		return players;
+	}
+	
+	this.getByPosition = function (position) {
+	  return players.filter(function (p) { return p.position === position });
+	}
+	
+	this.addPlayer = function (player){
+		players.push(new model.Player(player));
+	}
+	
+	var readInPlayers = function (){
+		var playerJson = './app/data/players.json';
+		var data = fs.readFileSync(playerJson);
+		var parsed = JSON.parse(data).forEach(function (player){
+			players.push(new model.Player(player));
+		});
+		
+	}
+};
+
+var mockteamData = [new model.Team({id: 1, name: 'team 1', owner: 'Madden\'s all-stars'}), new model.Team({id: 2, name:'Make Football Great Again', owner: 'Albert'}), new model.Team({id: 1, name: 'Out of your league', owner: 'Ishmael'})];
+var teams = function (){
+
+	var teams = mockteamData;
+
+	this.getAll = function () { return teams; }
+
+	this.addTeam = function (team) {
+	  teams.push(new model.Team(team));
+	}
+}
+
+
+
+module.exports = {
+	players: new players(),
+	teams: new teams()
+};
+

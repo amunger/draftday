@@ -10,26 +10,7 @@ var player = function(args){
   this.available = true;
 }
 
-var addPlayer = function (newPlayer){
-  players.push(new player(newPlayer));
-}
-
-var players = [];
-
-var getPlayers = function (){
-   return players;
-}
-
-var getByPosition = function (position) {
-  return players.filter(function (p) { return p.position === position });
-}
-
-module.exports = {
-  player: player,
-  addPlayer: addPlayer,
-  getPlayers: getPlayers,
-  getByPosition: getByPosition
-}
+module.exports = player;
 
 currentID = 1;
 var nextPlayerID = function () {
