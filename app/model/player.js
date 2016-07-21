@@ -1,19 +1,20 @@
+'use strict'
 var assert = require('assert');
 
 var player = function(args){
-  assert(name);
-  var id = nextPlayerID++;
-  var name = args.name;
-  var position = args.position.toUpperCase() || '';
-  var team = args.team.toUpperCase() || '';
-  var bye = args.bye || 0;
-  var available = true;
+  assert(args.name);
+  this.id = args.id || nextPlayerID();
+  this.name = args.name;
+  this.position = args.position && args.position.toUpperCase() || '';
+  this.team = args.team && args.team.toUpperCase() || '';
+  this.bye = args.bye || 0;
+  this.available = true;
 }
 
-var nextPlayerID = 0;
+module.exports = player;
 
-var players = [];
-
-var getPlayers = function (){
-
+var currentID = 1;
+var nextPlayerID = function () {
+  return currentID++;
 }
+

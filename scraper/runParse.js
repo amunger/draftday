@@ -20,7 +20,7 @@ fs.readdir( rawInputDir, function( err, files ) {
 			callback();
 		});
 	}, function(err){
-		fs.writeFile('./output/parsed.json', JSON.stringify(players), 'utf8', function(){console.log('done');});
+		fs.writeFile('./output/players.json', JSON.stringify(players), 'utf8', function(){console.log('done');});
 	});
 	
 });
