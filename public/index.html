@@ -19,6 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="lib/jquery/dist/jquery.min.js"><\/script>')</script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angularUtils-pagination/dirPagination.js"></script>
 
     <script src="js/core.js"></script>
   </head>
@@ -106,11 +107,17 @@
         <div class="col-sm-8" ng-controller="playerController">
           <div class="row players">
             <h2>Draft Class</h2>
-            <Table class="table table-condensed table-striped">
+            <form class="form-inline">
+              <div class="form-group">
+                <label>Search</label>
+                <input type="text" ng-model="search" class="form-control" placeholder="Search">
+              </div>
+            </form>
+            <Table id="playerTable" class="table table-striped">
               <tr>
-                <th>Name</th><th>Position</th><th>team</th>
+                <th>Name</th><th>Position</th><th>Team</th>
               </tr>
-              <tr ng-repeat="player in players">
+              <tr dir-paginate=="player in players | filter:search | itemsPerPage:10">
                 <td>{{ player.name }}</td>
                 <td>{{ player.position }}</td>
                 <td>{{ player.team }}</td>
@@ -130,12 +137,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
 
 
   </body>

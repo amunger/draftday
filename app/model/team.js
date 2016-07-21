@@ -7,6 +7,7 @@ var team = function(args){
   this.name = args.name || '';
   this.owner = args.owner || '';
   this.players = [];
+  
 }
 
 module.exports = team;

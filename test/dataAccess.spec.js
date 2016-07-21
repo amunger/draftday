@@ -26,19 +26,34 @@ describe('The data access object', function(){
 	  data.teams.addTeam({id:3, name:'team3'});
 	  
 	  it('getting the list should return those teams', function () {
-		var teams = data.teams.getAll();
-		assert(teams.length > 2, 'not enough teams');
+      var teams = data.teams.getAll();
+      assert(teams.length > 2, 'not enough teams');
 	  });
+    
+    it('can retrieve team by ID', function (){
+      var team1 = data.teams.getByID(1);
+      assert(team1.name, 'team1');
+    });
 
 	  describe('With new teams added', function() {
-		data.teams.addTeam({name:'team1'});
-		data.teams.addTeam({name:'team2'});
+      data.teams.addTeam({name:'team1'});
+      data.teams.addTeam({name:'team2'});
 
-		it ('should give unique IDs to each team', function() {
-		  var teams = data.teams.getAll();
-		  assert(teams[2].id != teams[3].id);
-		  assert(teams[3].id != teams[4].id);
-		});
+      it ('should give unique IDs to each team', function() {
+        var teams = data.teams.getAll();
+        assert(teams[2].id != teams[3].id);
+        assert(teams[3].id != teams[4].id);
+      });
 	  });
+    
+    describe('adding a player to a team', function(){
+      data.teams.addPlayerToTeam(1, {id: 1, name: 'Player 1', position: 'WR'});
+      var testTeam = data.teams.getByID(1);
+      it('the team should contain that player', function () {
+        var player = testTeam.players[0];
+        assert.equal(player.name, 'Player 1');
+      });
+      
+    });
 	});
 });

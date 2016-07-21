@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 var fs = require('fs');
 var model = require('./model');
 
@@ -40,6 +40,16 @@ var teams = function (){
 	this.addTeam = function (team) {
 	  teams.push(new model.Team(team));
 	}
+  
+  this.getByID = function(id) {
+    return teams.find(function (team) { return team.id === id });
+  }
+  
+  this.addPlayerToTeam = function(teamID, player){
+    var playerToAdd = new model.Player(player);
+    var team = this.getByID(teamID);
+    team.players.push(playerToAdd);
+  }
 }
 
 

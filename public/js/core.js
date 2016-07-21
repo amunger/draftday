@@ -1,4 +1,4 @@
-var draftDayApp = angular.module('draftDayApp', []);
+var draftDayApp = angular.module('draftDayApp', ['angularUtils.directives.dirPagination']);
 
 function playerController($scope, $http) {
   $scope.formData = {};
@@ -54,3 +54,4 @@ function teamController($scope, $http) {
   };
 
 }
+

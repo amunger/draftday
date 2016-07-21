@@ -8,7 +8,7 @@ var routes = function (app) {
   });
 
   app.get('/api/players', function (req, res) {
-	res.json(data.players.getAll());
+    res.json(data.players.getAll());
   });
 
   app.post('/api/teams', function(req, res) {
