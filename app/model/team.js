@@ -1,3 +1,4 @@
+'use strict'
 var _ = require('underscore');
 
 var team = function(args){
@@ -11,7 +12,7 @@ var team = function(args){
 module.exports = team;
 
 
-currentID = 1;
+var currentID = 1;
 var nextID = function () {
   return currentID++;
 }

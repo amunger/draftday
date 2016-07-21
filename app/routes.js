@@ -1,16 +1,21 @@
 var model = require('./model');
+var data = require('./dataAccess');
 
 var routes = function (app) {
   app.get('/api/teams', function (req, res) {
-    res.json(model.team.getTeams());
+    res.json(data.teams.getAll());
+  });
+  
+  app.get('/api/players', function (req, res) {
+	res.json(data.players.getAll());
   });
 
   app.post('/api/teams', function(req, res) {
     var teamName = req.body.teamName;
     var teamOwner = req.body.teamOwner;
-    model.team.addTeam({name: teamName, owner: teamOwner});
+    data.teams.addTeam({name: teamName, owner: teamOwner});
 
-    res.json(model.team.getTeams());
+    res.json(data.teams.getAll());
   });
 
   app.delete('/api/teams/:team_id', function(req, res) {
