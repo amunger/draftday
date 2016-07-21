@@ -1,3 +1,4 @@
+'use strict'
 var model = require('./model');
 var data = require('./dataAccess');
 
@@ -5,7 +6,7 @@ var routes = function (app) {
   app.get('/api/teams', function (req, res) {
     res.json(data.teams.getAll());
   });
-  
+
   app.get('/api/players', function (req, res) {
 	res.json(data.players.getAll());
   });
