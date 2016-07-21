@@ -1,3 +1,4 @@
+'use strict'
 var assert = require('assert');
 
 var player = function(args){
@@ -12,7 +13,8 @@ var player = function(args){
 
 module.exports = player;
 
-currentID = 1;
+var currentID = 1;
 var nextPlayerID = function () {
   return currentID++;
 }
+

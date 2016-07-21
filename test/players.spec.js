@@ -1,3 +1,4 @@
+'use strict'
 var Player = require('../app/model/player');
 var assert = require('assert');
 
