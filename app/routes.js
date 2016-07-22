@@ -11,6 +11,13 @@ var routes = function (app) {
     res.json(data.players.getAll());
   });
 
+  app.get('/api/selectPlayer/:playerID', function (req, res) {
+    var player = data.players.getByID(req.params.playerID);
+
+    data.teams.addPlayerToCurrentTeam(player);
+    res.json(data.teams.getAll());
+  });
+
   app.post('/api/teams', function(req, res) {
     var teamName = req.body.teamName;
     var teamOwner = req.body.teamOwner;
@@ -19,7 +26,7 @@ var routes = function (app) {
     res.json(data.teams.getAll());
   });
 
-  app.delete('/api/teams/:team_id', function(req, res) {
+  app.delete('/api/teams/:teamID', function(req, res) {
     res.send('not yet implemented');
   });
 

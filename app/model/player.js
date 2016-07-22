@@ -8,7 +8,6 @@ var player = function(args){
   this.position = args.position && args.position.toUpperCase() || '';
   this.team = args.team && args.team.toUpperCase() || '';
   this.bye = args.bye || 0;
-  this.available = true;
 }
 
 module.exports = player;
@@ -17,4 +16,3 @@ var currentID = 1;
 var nextPlayerID = function () {
   return currentID++;
 }
-
