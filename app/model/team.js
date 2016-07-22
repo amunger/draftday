@@ -7,6 +7,11 @@ var team = function(args){
   this.name = args.name || '';
   this.owner = args.owner || '';
   this.players = [];
+
+  this.countAtPosition = function(position){
+    var posList = this.players.filter(function(p) {return p.position == position});
+    return posList.length;
+  }
 }
 
 module.exports = team;

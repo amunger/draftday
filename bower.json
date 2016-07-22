@@ -19,6 +19,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "toastr": "^2.1.2",
-    "angular": "^1.5.7"
+    "angular": "^1.5.7",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
   }
 }

@@ -19,16 +19,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="lib/jquery/dist/jquery.min.js"><\/script>')</script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angularUtils-pagination/dirPagination.js"></script>
 
     <script src="js/core.js"></script>
   </head>
 
-  <body>
+  <body ng-controller="draftController">
 
     <div class="container">
       <div class="row">
 
-        <div class="col-sm-4" ng-controller="teamController">
+        <div class="col-sm-6" >
           <div class="row">
             <h2>Teams
               <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#addTeamModal">
@@ -45,25 +46,28 @@
                 <div class="list-group draft-list">
                   <a href="#" class="list-group-item" ng-repeat="team in teams">
                     <p><h5>{{ team.name }}</h5>
-                    QB:0 RB:0<br/>
-                    WR:0 TE:0<br/>
-                    K:0 DEF:0</p>
+                    <b>QB</b>:{{ countAtPosition(team, "QB") }} <b>RB</b>:{{ countAtPosition(team, "RB") }}<br/>
+                    <b>WR</b>:{{ countAtPosition(team, "WR") }} <b>TE</b>:{{ countAtPosition(team, "TE") }}<br/>
+                    <b>K</b>:{{countAtPosition(team, "K") }} &nbsp&nbsp<b>DEF</b>:{{ countAtPosition(team, "DEF") }}</p>
                   </a>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-6">
-              <div class="panel panel-default">
-                <div class="panel-heading">Current Pick</div>
+              <div class="panel panel-primary">
+                <div class="panel-heading current-warning">Current Pick</div>
                 <div class="panel-body">
-                  <b>{{ currentPick.name }}<b>
+                  <b>{{ currentPick.name }}</b>
                   <p><b>Owner: </b>{{ currentPick.owner }}</p>
-                  <ul>
-                    <li ng-repeat="player in currentPick.teams">
-                      {{ player.name }}
-                    </li>
-                  </ul>
+                  <div>
+                    <b>QB</b>:{{ countAtPosition(currentPick, "QB") }} <b>RB</b>:{{ countAtPosition(currentPick, "RB") }}<br/>
+                    <b>WR</b>:{{ countAtPosition(currentPick, "WR") }} <b>TE</b>:{{ countAtPosition(currentPick, "TE") }}<br/>
+                    <b>K</b>:{{countAtPosition(currentPick, "K") }} &nbsp&nbsp<b>DEF</b>:{{ countAtPosition(currentPick, "DEF") }}</p>
+                  </div>
+                  <div ng-repeat="player in currentPick.players">
+                    {{ player.name }} - {{ player.position }} - {{ player.team }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -83,11 +87,11 @@
                     <div class="form-group">
                       <label for="teamName" class="col-sm-4 control-label">Team Name</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control" name="teamName" placeholder="team name" ng-model="formData.teamName">
+                        <input type="text" class="form-control" name="teamName" placeholder="team name" ng-model="teamFormData.teamName">
                       </div>
                       <label for="owner" class="col-sm-4 control-label">Owner</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control"  name="owner" placeholder="Owner" ng-model="formData.teamOwner">
+                        <input type="text" class="form-control"  name="owner" placeholder="Owner" ng-model="teamFormData.teamOwner">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg" ng-click="createTeam()">Add Team</button>
@@ -103,19 +107,27 @@
 
         </div>
 
-        <div class="col-sm-8" ng-controller="playerController">
+        <div class="col-sm-6">
           <div class="row players">
             <h2>Draft Class</h2>
-            <Table class="table table-condensed table-striped">
+            <form class="form-inline">
+              <div class="form-group">
+                <label>Search</label>
+                <input type="text" ng-model="search" class="form-control" placeholder="Search">
+              </div>
+            </form>
+            <Table id="playerTable" class="table table-striped">
               <tr>
-                <th>Name</th><th>Position</th><th>team</th>
+                <th>Name</th><th>Position</th><th>Team</th><th></th>
               </tr>
-              <tr ng-repeat="player in players">
+              <tr dir-paginate="player in players | filter:search | itemsPerPage:10">
                 <td>{{ player.name }}</td>
                 <td>{{ player.position }}</td>
                 <td>{{ player.team }}</td>
+                <td><button class="btn btn-info" ng-click="selectPlayer(player.id)">Select</button></td>
               </tr>
             </table>
+            <dir-pagination-controls></dir-pagination-controls>
           </div>
 
           <div class="row users" >
@@ -130,12 +142,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
 
 
   </body>
