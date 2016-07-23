@@ -5,7 +5,6 @@ function draftController($scope, $http) {
 
   $http.get('/api/players')
     .success(function(data) {
-      console.log(data);
       $scope.players = data;
     })
     .error(function(data) {
@@ -58,8 +57,13 @@ function draftController($scope, $http) {
   };
 
   $scope.countAtPosition = function(team, position){
-    var posList = team.players.filter(function(p) {return p.position == position});
-    return posList.length;
+    if (team){
+      var posList = team.players.filter(function(p) {return p.position == position});
+      return posList.length;
+    }
+    else{
+      return 0;
+    }
   }
 
   var setTeams = function (teams){

@@ -17,7 +17,7 @@ var routes = function (app) {
     var player = data.players.getByID(req.params.playerID);
     var league = req.params.league;
     data.leagues.addPlayerToCurrentTeam(league, player, function (err, data){
-      res.json(data);
+      res.json(data.teams);
     });
   });
 
