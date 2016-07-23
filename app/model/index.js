@@ -1,8 +1,10 @@
 'use strict'
-var team = require('./team');
+var Team = require('./team');
 var Player = require('./player');
+var League = require('./league');
 
 module.exports = {
-  Team: team,
-  Player: Player
+  Team: Team,
+  Player: Player,
+  League: League
 }

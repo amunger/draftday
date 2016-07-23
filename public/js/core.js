@@ -12,7 +12,7 @@ function draftController($scope, $http) {
       console.log('Error: ' + data);
     });
 
-  $http.get('/api/teams')
+  $http.get('/api/teams/' + 'mockleague')
     .success(function(data) {
         console.log(data);
         setTeams(data);
@@ -23,7 +23,7 @@ function draftController($scope, $http) {
 
   $scope.selectPlayer = function (playerID){
     console.log(playerID + ' selected');
-    $http.get('/api/selectPlayer/' + playerID)
+    $http.get('/api/selectPlayer/' + 'mockleague' + '/' + playerID)
       .success(function(data) {
         console.log(data);
         setTeams(data);
@@ -36,7 +36,7 @@ function draftController($scope, $http) {
   $scope.teamFormData = {};
 
   $scope.createTeam = function() {
-    $http.post('/api/teams', $scope.teamFormData)
+    $http.post('/api/team/' + 'mockleague', $scope.teamFormData)
       .success(function(data) {
         $scope.teamFormData = {};
         setTeams(data);
@@ -48,7 +48,7 @@ function draftController($scope, $http) {
   };
 
   $scope.deleteTeam = function(id) {
-    $http.delete('/api/teams/' + id)
+    $http.delete('/api/team/' + id)
       .success(function(data) {
         setTeams(data);
       })

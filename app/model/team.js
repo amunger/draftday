@@ -1,5 +1,4 @@
 'use strict'
-var _ = require('underscore');
 
 var team = function(args){
   var args = args || {};
