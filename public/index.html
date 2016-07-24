@@ -57,7 +57,10 @@
 
             <div class="col-sm-6">
               <div class="panel panel-primary">
-                <div class="panel-heading current-warning">Current Pick</div>
+                <div class="panel-heading">
+                  Current Pick
+                  <button class="btn btn-xs btn-info pull-right" ng-click="undoLastPick()">Undo Last</button>
+                </div>
                 <div class="panel-body">
                   <b>{{ currentPick.name }}</b>
                   <p><b>Owner: </b>{{ currentPick.owner }}</p>

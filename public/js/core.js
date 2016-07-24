@@ -2,6 +2,7 @@ var draftDayApp = angular.module('draftDayApp', ['angularUtils.directives.dirPag
 
 function draftController($scope, $http) {
   $scope.selectedID = -1;
+  $scope.leagueName = 'mockleague';
 
   $http.get('/api/players')
     .success(function(data) {
@@ -11,7 +12,7 @@ function draftController($scope, $http) {
       console.log('Error: ' + data);
     });
 
-  $http.get('/api/teams/' + 'mockleague')
+  $http.get('/api/teams/' + $scope.leagueName)
     .success(function(data) {
         console.log(data);
         setTeams(data);
@@ -21,8 +22,18 @@ function draftController($scope, $http) {
       });
 
   $scope.selectPlayer = function (playerID){
-    console.log(playerID + ' selected');
-    $http.get('/api/selectPlayer/' + 'mockleague' + '/' + playerID)
+    $http.get('/api/selectPlayer/' + $scope.leagueName + '/' + playerID)
+      .success(function(data) {
+        console.log(data);
+        setTeams(data);
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+  }
+
+  $scope.undoLastPick = function (){
+    $http.get('/api/undoLastPick/' + $scope.leagueName)
       .success(function(data) {
         console.log(data);
         setTeams(data);
@@ -35,7 +46,7 @@ function draftController($scope, $http) {
   $scope.teamFormData = {};
 
   $scope.createTeam = function() {
-    $http.post('/api/team/' + 'mockleague', $scope.teamFormData)
+    $http.post('/api/team/' + $scope.leagueName, $scope.teamFormData)
       .success(function(data) {
         $scope.teamFormData = {};
         setTeams(data);

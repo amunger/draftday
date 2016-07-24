@@ -37,6 +37,16 @@ var leagues = function () {
     });
   }
 
+  this.undoLastPick = function (leagueName, callback) {
+    var save = this.saveLeague;
+    this.getLeague(leagueName, function (err, data){
+      if (err) console.log(err);
+      data.undoLastPick();
+      save(data);
+      callback(null, data);
+    });
+  }
+
   this.saveLeague = function (league, callback) {
     assert(league.name, "league needs a name");
     redisClient.set('league:' + league.name, JSON.stringify(league), callback);

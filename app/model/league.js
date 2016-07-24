@@ -19,6 +19,15 @@ var league = function (args){
       teamList[0].players.push(player);
       teamList.push(teamList.shift());
     }
+  };
+
+  this.undoLastPick = function(){
+    var teamList = this.teams;
+    if(teamList.length > 0 && teamList[teamList.length-1].players.length > 0){
+      teamList.unshift(teamList.pop());
+      var removed = teamList[0].players.pop();
+      console.log('removing ' + removed.name + ' from ' + teamList[0].name);
+    }
   }
 }
 

@@ -21,6 +21,13 @@ var routes = function (app) {
     });
   });
 
+  app.get('/api/undoLastPick/:league', function(req, res){
+    var league = req.params.league;
+    data.leagues.undoLastPick(league, function (err, data){
+      res.json(data.teams);
+    });
+  });
+
   app.post('/api/team/:league', function(req, res) {
     var league = req.params.league;
     var teamName = req.body.teamName;
@@ -28,7 +35,7 @@ var routes = function (app) {
     data.leagues.addTeam(league,
       {name: teamName, owner: teamOwner},
       function (err, data){
-        res.json(data);
+        res.json(data.teams);
       });
   });
 

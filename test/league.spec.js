@@ -6,10 +6,14 @@ describe('A league new league', function(){
   var league = new model.League({name: 'testname'});
 
   describe('when first created', function(){
-    assert.equal(league.name, 'testname');
-    assert(league.teams);
-    assert(league.users);
+    it('will have fields set up', function() {
+      assert.equal(league.name, 'testname');
+      assert(league.teams);
+      assert(league.users);
+    });
   });
+
+
 });
 
 describe('A league with a list of teams', function (){
@@ -49,4 +53,21 @@ describe('A league with a list of teams', function (){
     });
 
   });
+
+  describe('Undoing a selected player', function (){
+    var currentTeam = league.teams[0];
+    var startingPlayerCount = currentTeam.players.length;
+    league.addPlayerToCurrentTeam({id: 1, name: 'Player 1', position: 'WR'});
+    league.undoLastPick();
+
+    it('The team should not contain that player', function () {
+      assert.equal(startingPlayerCount, currentTeam.players.length);
+    });
+
+    it('Should have the team back in the previous order', function (){
+      var newOrder = league.teams;
+      assert.equal(newOrder[0], currentTeam);
+    });
+  });
+
 });
