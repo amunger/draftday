@@ -1,8 +1,8 @@
 var draftDayApp = angular.module('draftDayApp', ['angularUtils.directives.dirPagination']);
 
-function draftController($scope, $http) {
+draftDayApp.controller('draftController', ['$scope', '$http', function ($scope, $http) {
   $scope.selectedID = -1;
-  $scope.leagueName = 'mockleague';
+  $scope.leagueName = cookies.getCookie('leagueName');
   $scope.processing = false;
 
   $http.get('/api/players')
@@ -13,9 +13,8 @@ function draftController($scope, $http) {
     .error(function(data) {
       console.log('Error: ' + data);
     });
-  
-  $scope.joinLeague = function (){
-    $scope.leagueName = $scope.leagueForm.leagueName;
+
+  var loadLeague = function (){
     $http.get('/api/teams/' + $scope.leagueName)
       .success(function(data) {
           console.log(data);
@@ -25,6 +24,14 @@ function draftController($scope, $http) {
         .error(function(data) {
           console.log('Error: ' + data);
         });
+  }
+
+  loadLeague();
+
+  $scope.joinLeague = function (){
+    $scope.leagueName = $scope.leagueForm.leagueName;
+    cookies.setCookie('leagueName', $scope.leagueName, 1);
+    loadLeague();
   }
 
   $scope.selectPlayer = function (playerID){
@@ -127,4 +134,4 @@ function draftController($scope, $http) {
     }
   }
 
-}
+}]);
