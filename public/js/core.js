@@ -13,16 +13,19 @@ function draftController($scope, $http) {
     .error(function(data) {
       console.log('Error: ' + data);
     });
-
-  $http.get('/api/teams/' + $scope.leagueName)
-    .success(function(data) {
-        console.log(data);
-        setTeams(data);
-        arrangePlayers();
-      })
-      .error(function(data) {
-        console.log('Error: ' + data);
-      });
+  
+  $scope.joinLeague = function (){
+    $scope.leagueName = $scope.leagueForm.leagueName;
+    $http.get('/api/teams/' + $scope.leagueName)
+      .success(function(data) {
+          console.log(data);
+          setTeams(data);
+          arrangePlayers();
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+  }
 
   $scope.selectPlayer = function (playerID){
     $scope.processing = true;
