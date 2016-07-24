@@ -124,11 +124,16 @@
               <tr>
                 <th>Name</th><th>Position</th><th>Team</th><th></th>
               </tr>
-              <tr dir-paginate="player in players | filter:search | itemsPerPage:10">
+              <tr dir-paginate="player in players | orderBy:['-selected', 'rank'] | filter:search | itemsPerPage:10">
                 <td>{{ player.name }}</td>
                 <td>{{ player.position }}</td>
                 <td>{{ player.team }}</td>
-                <td><button class="btn btn-info" ng-click="selectPlayer(player.id)">Select</button></td>
+                <td>
+                  <button class="btn btn-info"
+                    ng-click="selectPlayer(player.id)"
+                    ng-disabled="processing" ng-hide="!!player.selected">Select</button>
+                  <div ng-hide="!player.selected">{{ player.selected }}</div>
+                </td>
               </tr>
             </table>
             <dir-pagination-controls></dir-pagination-controls>
