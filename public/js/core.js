@@ -20,11 +20,11 @@ draftDayApp.controller('chatController', function($scope){
   $scope.message = 'chat client';
 });
 
-draftDayApp.controller('loginController', function($scope){
+draftDayApp.controller('loginController', ['$scope', '$cookies', function($scope, $cookies){
   $scope.joinLeague = function (){
     $cookies.put('leagueName', $scope.form.leagueName);
   }
-})
+}]);
 
 draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', function ($scope, $http, $cookies) {
   $scope.selectedID = -1;
@@ -153,3 +153,5 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
   }
 
 }]);
+
+
