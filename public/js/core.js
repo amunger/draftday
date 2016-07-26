@@ -1,4 +1,30 @@
-var draftDayApp = angular.module('draftDayApp', ['ngCookies', 'angularUtils.directives.dirPagination']);
+var draftDayApp = angular.module('draftDayApp', ['ngRoute', 'ngCookies', 'angularUtils.directives.dirPagination']);
+
+draftDayApp.config(function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'pages/login.html',
+      controller: 'loginController'
+    })
+    .when('/draft', {
+      templateUrl : 'pages/draftCentral.html',
+      controller : 'draftController'
+    })
+    .when('/chat', {
+      templateUrl: 'pages/chat.html',
+      controller: 'chatController'
+    });
+});
+
+draftDayApp.controller('chatController', function($scope){
+  $scope.message = 'chat client';
+});
+
+draftDayApp.controller('loginController', function($scope){
+  $scope.joinLeague = function (){
+    $cookies.put('leagueName', $scope.form.leagueName);
+  }
+})
 
 draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', function ($scope, $http, $cookies) {
   $scope.selectedID = -1;
@@ -14,7 +40,7 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
       console.log('Error: ' + data);
     });
 
-  var loadLeague = function (){
+  if ($scope.leagueName){
     $http.get('/api/teams/' + $scope.leagueName)
       .success(function(data) {
           console.log(data);
@@ -24,14 +50,6 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
         .error(function(data) {
           console.log('Error: ' + data);
         });
-  }
-
-  loadLeague();
-
-  $scope.joinLeague = function (){
-    $scope.leagueName = $scope.leagueForm.leagueName;
-    $cookies.put('leagueName', $scope.leagueName);
-    loadLeague();
   }
 
   $scope.selectPlayer = function (playerID){

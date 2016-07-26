@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <div class="row players">
+
+        <div class="row">
+          <div class="col-sm-6"><h2>Draft Class</h2></div>
+          <div class="col-sm-6 table-search">
+            <form class="form-inline">
+              <div class="form-group">
+                <input type="text" ng-model="search" class="form-control" placeholder="Search">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <Table id="playerTable" class="table table-striped">
+          <tr>
+            <th>Name</th><th>Position</th><th>Team</th><th></th>
+          </tr>
+          <tr dir-paginate="player in players | orderBy:['selected', 'rank'] | filter:search | itemsPerPage:10">
+            <td>{{ player.name }}</td>
+            <td>{{ player.position }}</td>
+            <td>{{ player.team }}</td>
+            <td>
+              <button class="btn btn-info"
+                ng-click="selectPlayer(player.id)"
+                ng-disabled="processing" ng-hide="!!player.selected">Select</button>
+              <div ng-hide="!player.selected">{{ player.selected }}</div>
+            </td>
+          </tr>
+        </table>
+        <dir-pagination-controls></dir-pagination-controls>
+      </div>
+    </div>
+
+    <div class="col-sm-5" ng-hide="!leagueName">
+      <div class="row">
+        <h2 class="team-header">Teams
+          <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#addTeamModal">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button></h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              Current Pick
+              <button class="btn btn-xs btn-info pull-right" ng-click="undoLastPick()">Undo Last</button>
+            </div>
+            <div class="panel-body">
+              <b>{{ currentPick.name }}</b>
+              <p><b>Owner: </b>{{ currentPick.owner }}</p>
+              <div>
+                <b>QB</b>:{{ countAtPosition(currentPick, "QB") }} <b>RB</b>:{{ countAtPosition(currentPick, "RB") }}<br/>
+                <b>WR</b>:{{ countAtPosition(currentPick, "WR") }} <b>TE</b>:{{ countAtPosition(currentPick, "TE") }}<br/>
+                <b>K</b>:{{countAtPosition(currentPick, "K") }} &nbsp&nbsp<b>DEF</b>:{{ countAtPosition(currentPick, "DEF") }}</p>
+              </div>
+              <div ng-repeat="player in currentPick.players">
+                {{ player.name }} - {{ player.position }} - {{ player.team }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">Draft Order</div>
+            <div class="list-group draft-list">
+              <a href="#" class="list-group-item" ng-repeat="team in teams">
+                <p><h5>{{ team.name }}</h5>
+                <b>QB</b>:{{ countAtPosition(team, "QB") }} <b>RB</b>:{{ countAtPosition(team, "RB") }}<br/>
+                <b>WR</b>:{{ countAtPosition(team, "WR") }} <b>TE</b>:{{ countAtPosition(team, "TE") }}<br/>
+                <b>K</b>:{{ countAtPosition(team, "K") }} &nbsp&nbsp<b>DEF</b>:{{ countAtPosition(team, "DEF") }}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Add Team Modal -->
+      <div class="modal fade" id="addTeamModal" tabindex="-1" role="dialog" aria-labelledby="addTeamModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add Team</h4>
+            </div>
+            <div class="modal-body">
+
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="teamName" class="col-sm-4 control-label">Team Name</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" name="teamName" required placeholder="team name" ng-model="teamFormData.teamName">
+                  </div>
+                  <label for="owner" class="col-sm-4 control-label">Owner</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control"  name="owner" placeholder="Owner" ng-model="teamFormData.teamOwner">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="createTeam()">Add Team</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
