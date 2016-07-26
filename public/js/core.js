@@ -13,7 +13,7 @@ draftDayApp.config(function($routeProvider) {
     .when('/chat', {
       templateUrl: 'pages/chat.html',
       controller: 'chatController'
-    });
+    })
 });
 
 draftDayApp.controller('chatController', function($scope){
@@ -121,7 +121,7 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
   var arrangePlayers = function (){
     var leagueTeams = $scope.teams || [];
     if ($scope.players && $scope.currentPick){
-      $scope.players.map(function (player) {player.selected = null});
+      $scope.players.map(function (player) {player.selected = ''});
       $scope.currentPick.players.forEach(function (player){
         setPlayerAsSelected(player, $scope.currentPick.name);
       });
