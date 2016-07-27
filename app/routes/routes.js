@@ -1,6 +1,6 @@
 'use strict'
-var model = require('./model');
-var data = require('./data');
+var model = require('../model');
+var data = require('../data');
 
 var routes = function (app) {
   app.get('/api/teams/:league', function (req, res) {

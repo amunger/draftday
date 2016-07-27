@@ -1,5 +1,33 @@
-<div class="jumbotron text-center">
-  <h1>Chat Page</h1>
+<div class="container">
+  <div ng-controller='chatController'>
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Messages</div>
+        <p ng-repeat="message in messages" ng-class='{alert: message.user == "alert"}')>
+          {{ message.user }}: {{ message.text }}
+        </p>
+        <form class="form form-inline" ng-submit='sendMessage()'>
+          <input type="text" class="form-control" ng-model="message">
+          <button class="btn btn-sm btn-info">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-4">
 
-  <p>{{ message }}</p>
+      <div class="panel panel-default">
+        <div class="panel-heading">Users</div>
+        <p ng-repeat="user in users")>
+          {{ user }}
+        </p>
+
+
+      </div>
+      <h4>Change Your Name</h4>
+      <p>Current Name: {{ name }}</p>
+      <form class="form form-inline" ng-submit='changeName()'>
+        <input type="text" class="form-control" ng-model="newName">
+        <button class="btn btn-sm btn-info">Change Name</button>
+      </form>
+    </div>
+  </div>
 </div>

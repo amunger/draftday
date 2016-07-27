@@ -16,13 +16,10 @@ draftDayApp.config(function($routeProvider) {
     })
 });
 
-draftDayApp.controller('chatController', function($scope){
-  $scope.message = 'chat client';
-});
-
 draftDayApp.controller('loginController', ['$scope', '$cookies', function($scope, $cookies){
   $scope.joinLeague = function (){
     $cookies.put('leagueName', $scope.form.leagueName);
+    $scope.form = {};
   }
 }]);
 
@@ -153,5 +150,3 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
   }
 
 }]);
-
-

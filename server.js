@@ -15,9 +15,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
-routes(app);
+routes.routes(app);
 
 var port = process.env.PORT || 3000;
-app.listen(port, function() {
+var server = app.listen(port, function() {
 	console.log('listening on port ' + port);
 });
+
+var io = require('socket.io').listen(server);
+io.sockets.on('connection', routes.socket);
