@@ -1,9 +1,9 @@
 <div class="container">
-  <div ng-controller='chatController'>
+  <div>
     <div class="col-sm-6">
       <div class="panel panel-primary">
         <div class="panel-heading">Messages</div>
-        <p ng-repeat="message in messages" ng-class='{alert: message.user == "alert"}')>
+        <p ng-repeat="message in messages track by $index" )>
           {{ message.user }}: {{ message.text }}
         </p>
         <form class="form form-inline" ng-submit='sendMessage()'>
@@ -16,7 +16,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">Users</div>
-        <p ng-repeat="user in users")>
+        <p ng-repeat="user in users track by $index")>
           {{ user }}
         </p>
 

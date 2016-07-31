@@ -1,13 +1,30 @@
-draftDayApp.controller('chatController', ['$scope', 'socket',
+draftDayApp.controller('chatController', ['$scope', '$cookies', '$http', 'socket',
 
-  function($scope, socket){
+  function($scope, $cookies, $http, socket){
 
-    socket.on('init', function (data) {
-      $scope.name = data.name;
-      $scope.users = data.users;
-    });
+    $scope.userName = $cookies.get('userName');
+    $scope.leagueName = $cookies.get('leagueName');
+
+    socket.emit('joinRoom', {room:$scope.leagueName, userName: $scope.userName});
+
+    $http.get('/api/users/' + $scope.leagueName)
+      .success(function(data) {
+        $scope.users = data;
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+
+    $http.get('/api/messages/' + $scope.leagueName)
+        .success(function(data) {
+          $scope.messages = data;
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
 
     socket.on('send:message', function (message) {
+      console.log('message received ' + JSON.stringify(message));
       $scope.messages.push(message);
     });
 
@@ -16,27 +33,26 @@ draftDayApp.controller('chatController', ['$scope', 'socket',
     });
 
     socket.on('user:join', function (data) {
-      $scope.messages.push({
-        user: 'chatroom',
-        text: 'User ' + data.name + ' has joined.'
-      });
-      $scope.users.push(data.name);
+      console.log('User ' + data.name + ' has joined.');
+      $http.get('/api/users/' + $scope.leagueName)
+        .success(function(data) {
+          $scope.users = data;
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
     });
 
     // add a message to the conversation when a user disconnects or leaves the room
     socket.on('user:left', function (data) {
-      $scope.messages.push({
-        user: 'chatroom',
-        text: 'User ' + data.name + ' has left.'
-      });
-      var i, user;
-      for (i = 0; i < $scope.users.length; i++) {
-        user = $scope.users[i];
-        if (user === data.name) {
-          $scope.users.splice(i, 1);
-          break;
-        }
-      }
+      console.log('User ' + data.name + ' has left.');
+      $http.get('/api/users/' + $scope.leagueName)
+        .success(function(data) {
+          $scope.users = data;
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
     });
 
     // Private helpers
@@ -68,10 +84,11 @@ draftDayApp.controller('chatController', ['$scope', 'socket',
           alert('There was an error changing your name');
         } else {
 
-          changeName($scope.name, $scope.newName);
+          changeName($scope.userName, $scope.newName);
 
-          $scope.name = $scope.newName;
+          $scope.userName = $scope.newName;
           $scope.newName = '';
+          $cookies.put('userName', $scope.userName);
         }
       });
     };
@@ -85,7 +102,7 @@ draftDayApp.controller('chatController', ['$scope', 'socket',
 
       // add the message to our model locally
       $scope.messages.push({
-        user: $scope.name,
+        user: $scope.userName,
         text: $scope.message
       });
 

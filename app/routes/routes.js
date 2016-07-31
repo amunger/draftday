@@ -13,6 +13,16 @@ var routes = function (app) {
     res.json(data.players.getAll());
   });
 
+  app.get('/api/users/:league', function (req, res){
+    var users = data.chat.getUsers(req.params.league);
+    res.json(users);
+  });
+
+  app.get('/api/messages/:league', function (req, res){
+    var messages = data.chat.getMessages(req.params.league);
+    res.json(messages);
+  });
+
   app.get('/api/selectPlayer/:league/:playerID', function (req, res) {
     var player = data.players.getByID(req.params.playerID);
     var league = req.params.league;
