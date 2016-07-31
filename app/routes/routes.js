@@ -5,7 +5,7 @@ var data = require('../data');
 var routes = function (app) {
   app.get('/api/teams/:league', function (req, res) {
     data.leagues.getLeague(req.params.league, function(err, data){
-      res.json(data.teams);
+      res.json({teams: data.teams, currentPick: data.currentPick});
     });
   });
 
@@ -27,14 +27,14 @@ var routes = function (app) {
     var player = data.players.getByID(req.params.playerID);
     var league = req.params.league;
     data.leagues.addPlayerToCurrentTeam(league, player, function (err, data){
-      res.json(data.teams);
+      res.json({teams:data.teams, currentPick: data.currentPick});
     });
   });
 
   app.get('/api/undoLastPick/:league', function(req, res){
     var league = req.params.league;
     data.leagues.undoLastPick(league, function (err, data){
-      res.json(data.teams);
+      res.json({teams:data.teams, currentPick: data.currentPick});
     });
   });
 
