@@ -16,13 +16,10 @@ draftDayApp.config(function($routeProvider) {
     })
 });
 
-draftDayApp.controller('chatController', function($scope){
-  $scope.message = 'chat client';
-});
-
 draftDayApp.controller('loginController', ['$scope', '$cookies', function($scope, $cookies){
   $scope.joinLeague = function (){
     $cookies.put('leagueName', $scope.form.leagueName);
+    $scope.form = {};
   }
 }]);
 
@@ -113,9 +110,12 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
     }
   }
 
-  var setTeams = function (teams){
-    $scope.currentPick = teams.shift();
-    $scope.teams = teams;
+  var setTeams = function (teamData){
+    $scope.currentPick = teamData.teams.splice(teamData.currentPick, 1)[0];
+    $scope.teams = teamData.teams;
+    if (teamData.currentPick < $scope.teams.length){
+        $scope.teams[teamData.currentPick].nextUp = true;
+    }
   };
 
   var arrangePlayers = function (){
@@ -153,5 +153,3 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
   }
 
 }]);
-
-
