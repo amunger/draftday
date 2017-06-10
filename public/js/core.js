@@ -26,3 +26,8 @@ draftDayApp.controller('loginController', ['$scope', '$cookies', 'socket', funct
     $scope.form = {};
   }
 }]);
+
+draftDayApp.controller('mainCtrl', ['$scope', '$cookies', function($scope, $cookies) {
+  $scope.leagueName = $cookies.get('leagueName');
+  $scope.userName = $cookies.get('userName');
+}]);

@@ -2,9 +2,6 @@ draftDayApp.controller('chatController', ['$scope', '$cookies', '$http', 'socket
 
   function($scope, $cookies, $http, socket){
 
-    $scope.userName = $cookies.get('userName');
-    $scope.leagueName = $cookies.get('leagueName');
-
     socket.emit('joinRoom', {room:$scope.leagueName, userName: $scope.userName});
 
     $http.get('/api/users/' + $scope.leagueName)

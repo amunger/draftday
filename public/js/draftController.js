@@ -1,6 +1,5 @@
 draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', function ($scope, $http, $cookies) {
   $scope.selectedID = -1;
-  $scope.leagueName = $cookies.get('leagueName');
   $scope.processing = false;
 
   $http.get('/api/players')

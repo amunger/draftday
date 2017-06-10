@@ -32,7 +32,7 @@
     <script src="js/site.js"></script>
   </head>
 
-  <body>
+  <body ng-controller="mainCtrl">
 
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -44,6 +44,8 @@
           </button>
           <a class="navbar-brand" href="#">Draft Day</a>
         </div>
+        <p class="navbar-text navbar-right">Signed in as: {{ userName }}</p>
+        <p class="navbar-text navbar-right">League: {{ leagueName }}</p>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#/">Sign In</a></li>
