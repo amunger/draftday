@@ -48,9 +48,9 @@
         <p class="navbar-text navbar-right">League: {{ leagueName }}</p>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#/">Sign In</a></li>
-            <li><a href="#draft">Draft Central</a></li>
-            <li><a href="#chat">Chat</a></li>
+            <li ng-class="{ active: isActive('/')}"><a href="#/">Sign In</a></li>
+            <li ng-class="{ active: isActive('/draft')}"><a href="#draft">Draft Central</a></li>
+            <li ng-class="{ active: isActive('/chat')}"><a href="#chat">Chat</a></li>
           </ul>
         </div>
       </div>

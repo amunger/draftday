@@ -16,7 +16,7 @@ draftDayApp.config(function($routeProvider) {
     })
 });
 
-draftDayApp.controller('loginController', ['$scope', '$cookies', 'socket', function($scope, $cookies, socket){
+draftDayApp.controller('loginController', ['$scope', '$cookies', 'socket', '$location', function($scope, $cookies, socket,  $location){
   $scope.joinLeague = function (){
     let leagueName = $scope.form.leagueName;
     let userName = $scope.form.userName;
@@ -24,10 +24,14 @@ draftDayApp.controller('loginController', ['$scope', '$cookies', 'socket', funct
     $cookies.put('userName', userName);
     socket.emit('joinRoom', {room: leagueName, userName: userName});
     $scope.form = {};
-  }
+    location.href= '/#/draft';
+  };
 }]);
 
-draftDayApp.controller('mainCtrl', ['$scope', '$cookies', function($scope, $cookies) {
+draftDayApp.controller('mainCtrl', ['$scope', '$cookies', '$location', function($scope, $cookies, $location) {
   $scope.leagueName = $cookies.get('leagueName');
   $scope.userName = $cookies.get('userName');
+  $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
+  };
 }]);
