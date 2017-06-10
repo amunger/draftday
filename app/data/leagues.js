@@ -17,6 +17,16 @@ var leagues = function () {
     });
   }
 
+  this.updateTeam = function (leagueName, team, position, callback){
+    var save = this.saveLeague;
+    this.getLeague(leagueName, function (err, data){
+      if (err) console.log(err);
+      data.updateTeam(team, position);
+      save(data);
+      callback(null, data);
+    });
+  }
+
   this.addTeam = function (leagueName, team, callback) {
     var save = this.saveLeague;
     this.getLeague(leagueName, function (err, data){

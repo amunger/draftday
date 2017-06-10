@@ -12,6 +12,22 @@ var league = function (args){
     this.teams.push(new Team(team));
   };
 
+  this.updateTeam = function (team, position){
+    assert(team.id, 'Team must have an ID to update');
+    var originalPosition = findTeamPosition(this.teams, team.id);
+    assert(team.id, 'Team ID not found to perform update');
+    this.teams.splice(originalPosition,1);
+    this.teams.splice(position, 0, team);
+  }
+
+  var findTeamPosition = function (teams, teamID){
+    for (let i = 0; i < teams.length; i++){
+      if (teams[i].id == teamID){
+        return i;
+      }
+    }
+  }
+
   this.addPlayerToCurrentTeam = function(player){
     var teamList = this.teams;
     if(teamList.length > 0){

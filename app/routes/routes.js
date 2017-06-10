@@ -42,11 +42,23 @@ var routes = function (app) {
     var league = req.params.league;
     var teamName = req.body.teamName;
     var teamOwner = req.body.teamOwner;
-    data.leagues.addTeam(league,
-      {name: teamName, owner: teamOwner},
-      function (err, data){
-        res.json(data.teams);
-      });
+    var teamID = req.body.teamID;
+
+    if (teamID){
+      data.leagues.updateTeam(league,
+        {id: teamID, name: teamName, owner: teamOwner},
+        req.position,
+        function (err, data){
+          res.json(data.teams);
+        });
+    }
+    else{
+      data.leagues.addTeam(league,
+        {name: teamName, owner: teamOwner},
+        function (err, data){
+          res.json(data.teams);
+        });
+    }
   });
 
   app.delete('/api/team/:teamID', function(req, res) {

@@ -11,14 +11,14 @@ describe('A league new league', function(){
       assert(league.teams);
     });
   });
-
-
 });
 
 describe('A league with a list of teams', function (){
   var league = new model.League({name: 'name of the league'});
   league.addTeam({id:1, name:'team1'});
   league.addTeam({id:2, name:'team2'});
+  league.addTeam({id:3, name:'team2'});
+  league.addTeam({id:4, name:'team2'});
 
   it('getting the list should return those teams', function () {
     var teams = league.teams;
@@ -31,28 +31,30 @@ describe('A league with a list of teams', function (){
 
     it ('should give unique IDs to each team', function() {
       var teams = league.teams;
-      assert(teams[0].id != teams[2].id);
-      assert(teams[1].id != teams[2].id);
-      assert(teams[1].id != teams[3].id);
+      for(let i = 0; i < teams.length - 1; i++){
+        for (let j = i+1; j < teams.length; j++){
+          assert(teams[i].id != teams[j].id, "teams " + i + " and " + j + " have the same ID");
+        }
+      }
     });
   });
 
   describe('Selecting players to a team', function(){
-    var firstTeam = league.teams[0];
-    var secondTeam = league.teams[1];
-
+    
     before(function(){
       league.addPlayerToCurrentTeam({id: 1, name: 'Player 1', position: 'WR'});
       league.addPlayerToCurrentTeam({id: 2, name: 'Player 2', position: 'RB'});
     });
 
     it('The first team should contain the first player added', function () {
+      var firstTeam = league.teams[0];
       assert.equal(1, firstTeam.players.length);
       var player = firstTeam.players[0];
       assert.equal(player.name, 'Player 1');
     });
 
     it('The next selected player should go on the next team', function (){
+      var secondTeam = league.teams[1];
       assert.equal(1, secondTeam.players.length);
       var player = secondTeam.players[0];
       assert.equal(player.name, 'Player 2');
@@ -60,11 +62,34 @@ describe('A league with a list of teams', function (){
 
   });
 
+  describe('Editing one of those teams', function (){
+    var newName = 'new name';
+    var newPosition = 1;
+    var originalCount = league.teams.length;
+    var team = league.teams[2];
+    team.name = newName;
+    league.updateTeam(team, newPosition);
+
+    it ('Should be in the new position', function(){
+      assert(league.teams[newPosition].id == 3);
+    });
+
+    it ('Should have the new name', function(){
+      assert(league.teams[newPosition].name == newName);
+    });
+
+    if ('Should have the same number of teams in the league', function(){
+      assert(league.teams.length == originalCount);
+    });
+  });
+
   describe('When selecting to teams at the end of the order', function(){
     var lastTeam = league.teams[league.teams.length-1];
     before(function(){
       league.addPlayerToCurrentTeam({id: 1, name: 'Player 4', position: 'WR'});
       league.addPlayerToCurrentTeam({id: 2, name: 'Player 5', position: 'RB'});
+      league.addPlayerToCurrentTeam({id: 3, name: 'Player 6', position: 'WR'});
+      league.addPlayerToCurrentTeam({id: 4, name: 'Player 7', position: 'RB'});
     });
 
     it('The next team to select should be the last team again', function (){
