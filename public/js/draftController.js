@@ -50,9 +50,28 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
       });
   }
 
+  $('#upsertTeamModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var teamID = button.data('teamid');
+    var modal = $(this);
+    if (teamID){
+      modal.find('.modal-title').text('Edit Team');
+      $('#submitbtn').text('Update');
+      $scope.teamFormData = { id: teamID };
+      modal.find('[name=teamName]').val(button.data('teamname'));
+      modal.find('[name=owner]').val(button.data('owner'));
+      modal.find('[name=position]').val(button.data('position'));
+    } else{
+      modal.find('.modal-title').text('Add Team');
+      $('#submitbtn').text('Create');
+      $scope.teamFormData = {};
+    }
+
+  });
+
   $scope.teamFormData = {};
 
-  $scope.createTeam = function() {
+  $scope.upsertTeam = function() {
     $http.post('/api/team/' + $scope.leagueName, $scope.teamFormData)
       .success(function(data) {
         $scope.teamFormData = {};

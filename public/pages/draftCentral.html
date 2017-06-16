@@ -38,7 +38,7 @@
     <div class="col-sm-5" ng-hide="!leagueName">
       <div class="row">
         <h2 class="team-header">Teams
-          <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#addTeamModal">
+          <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#upsertTeamModal">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button></h2>
       </div>
@@ -70,20 +70,27 @@
           <div class="panel panel-default">
             <div class="panel-heading">Draft Order</div>
             <div class="list-group draft-list">
-              <a href="#" class="list-group-item" ng-repeat="team in teams">
-                <p><h5>{{ team.name }}</h5>
-                <b>QB</b>:{{ countAtPosition(team, "QB") }} <b>RB</b>:{{ countAtPosition(team, "RB") }}<br/>
-                <b>WR</b>:{{ countAtPosition(team, "WR") }} <b>TE</b>:{{ countAtPosition(team, "TE") }}<br/>
-                <b>K</b>:{{ countAtPosition(team, "K") }} &nbsp&nbsp<b>DEF</b>:{{ countAtPosition(team, "DEF") }}</p>
-              </a>
+              <div href="#" class="list-group-item" ng-repeat="team in teams">
+                <p>
+                  <h5>{{ team.name }}
+                    <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#upsertTeamModal"
+                      data-teamid="{{ team.id }}" data-teamname="{{ team.name }}" data-owner="{{ team.owner }}" data-position="{{ team.position }}">
+                      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                  </h5>
+                  <b>QB</b>:{{ countAtPosition(team, "QB") }} <b>RB</b>:{{ countAtPosition(team, "RB") }}<br/>
+                  <b>WR</b>:{{ countAtPosition(team, "WR") }} <b>TE</b>:{{ countAtPosition(team, "TE") }}<br/>
+                  <b>K</b>:{{ countAtPosition(team, "K") }} &nbsp&nbsp<b>DEF</b>:{{ countAtPosition(team, "DEF") }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
-      
+
       <!-- Add Team Modal -->
-      <div class="modal fade" id="addTeamModal" tabindex="-1" role="dialog" aria-labelledby="addTeamModal">
+      <div class="modal fade" id="upsertTeamModal" tabindex="-1" role="dialog" aria-labelledby="upsertTeamModal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -100,10 +107,14 @@
                   </div>
                   <label for="owner" class="col-sm-4 control-label">Owner</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control"  name="owner" placeholder="Owner" ng-model="teamFormData.teamOwner">
+                    <input type="text" class="form-control" name="owner" placeholder="Owner" ng-model="teamFormData.teamOwner">
+                  </div>
+                  <label for="owner" class="col-sm-4 control-label">Draft Order</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" name="position" placeholder="Draft Position" ng-model="teamFormData.position">
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg" ng-click="createTeam()">Add Team</button>
+                <button id='submitbtn' type="submit" class="btn btn-primary btn-lg" ng-click="upsertTeam()">Add Team</button>
               </form>
 
             </div>
