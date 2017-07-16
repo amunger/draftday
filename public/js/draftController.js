@@ -50,28 +50,29 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
       });
   }
 
-  $('#upsertTeamModal').on('show.bs.modal', function (event) {
+  $('#insertTeamModal').on('show.bs.modal', function (event) {
+    var modal = $(this);
+    modal.find('[name=teamName]').val('');
+    modal.find('[name=owner]').val('');
+    $scope.teamFormData = {};
+  });
+
+  $('#updateTeamModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var teamID = button.data('teamid');
     var modal = $(this);
+
     $scope.teamFormData = {
       teamID : teamID,
       teamName : button.data('teamname'),
       teamOwner : button.data('owner'),
       position : button.data('position')
     };
-    if (teamID){
-      modal.find('.modal-title').text('Edit Team');
-      $('#submitbtn').text('Update');
-      modal.find('[name=teamID]').val(teamID);
-      modal.find('[name=teamName]').val(button.data('teamname'));
-      modal.find('[name=owner]').val(button.data('owner'));
-      modal.find('[name=position]').val(button.data('position'));
-    } else{
-      modal.find('.modal-title').text('Add Team');
-      $('#submitbtn').text('Create');
-      $scope.teamFormData = {};
-    }
+
+    modal.find('[name=teamID]').val(teamID);
+    modal.find('[name=teamName]').val(button.data('teamname'));
+    modal.find('[name=owner]').val(button.data('owner'));
+    modal.find('[name=position]').val(button.data('position'));
 
   });
 
@@ -109,11 +110,11 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
     }
   }
 
-  var setTeams = function (teamData){
-    $scope.currentPick = teamData.teams[teamData.currentPick];
-    $scope.teams = teamData.teams;
-    if (teamData.currentPick < $scope.teams.length){
-        $scope.teams[teamData.currentPick].activePick = true;
+  var setTeams = function (league){
+    $scope.currentPick = league.teams[league.currentPick];
+    $scope.teams = league.teams;
+    if (league.currentPick < $scope.teams.length){
+        $scope.teams[league.currentPick].activePick = true;
     }
   };
 

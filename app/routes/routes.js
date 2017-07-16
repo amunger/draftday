@@ -51,14 +51,14 @@ var routes = function (app) {
         {id: teamID, name: teamName, owner: teamOwner},
         req.position,
         function (err, data){
-          res.json(data.teams);
+          res.json(data);
         });
     }
     else{
       data.leagues.addTeam(league,
         {name: teamName, owner: teamOwner},
         function (err, data){
-          res.json(data.teams);
+          res.json(data);
         });
     }
   });
