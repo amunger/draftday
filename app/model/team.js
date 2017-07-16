@@ -11,6 +11,12 @@ var team = function(args){
     var posList = this.players.filter(function(p) {return p.position == position});
     return posList.length;
   }
+
+  this.update = function(args){
+    this.name = args.name || this.name;
+    this.owner = args.owner || this.owner;
+    this.players = args.players || this.players;
+  }
 }
 
 module.exports = team;

@@ -44,6 +44,8 @@ var routes = function (app) {
     var teamOwner = req.body.teamOwner;
     var teamID = req.body.teamID;
 
+    console.log(req.body);
+
     if (teamID){
       data.leagues.updateTeam(league,
         {id: teamID, name: teamName, owner: teamOwner},

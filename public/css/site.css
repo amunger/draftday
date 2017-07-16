@@ -1,3 +1,7 @@
 .team-header{
   padding-left: 15px
 }
+
+.draft-list div.list-group-item{
+  padding: 0;
+}

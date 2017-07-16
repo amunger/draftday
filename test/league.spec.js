@@ -40,7 +40,7 @@ describe('A league with a list of teams', function (){
   });
 
   describe('Selecting players to a team', function(){
-    
+
     before(function(){
       league.addPlayerToCurrentTeam({id: 1, name: 'Player 1', position: 'WR'});
       league.addPlayerToCurrentTeam({id: 2, name: 'Player 2', position: 'RB'});
@@ -66,8 +66,10 @@ describe('A league with a list of teams', function (){
     var newName = 'new name';
     var newPosition = 1;
     var originalCount = league.teams.length;
-    var team = league.teams[2];
-    team.name = newName;
+    var team = {
+      id : league.teams[2].id,
+      name : newName
+    };
     league.updateTeam(team, newPosition);
 
     it ('Should be in the new position', function(){
@@ -78,8 +80,12 @@ describe('A league with a list of teams', function (){
       assert(league.teams[newPosition].name == newName);
     });
 
-    if ('Should have the same number of teams in the league', function(){
+    it ('Should have the same number of teams in the league', function(){
       assert(league.teams.length == originalCount);
+    });
+
+    it ('Should still have the original fields when not updated', function(){
+      assert(league.teams[newPosition].players, 'players should not be null');
     });
   });
 

@@ -16,8 +16,12 @@ var league = function (args){
     assert(team.id, 'Team must have an ID to update');
     var originalPosition = findTeamPosition(this.teams, team.id);
     assert(team.id, 'Team ID not found to perform update');
-    this.teams.splice(originalPosition,1);
-    this.teams.splice(position, 0, team);
+    var original = this.teams.splice(originalPosition,1);
+    if (original.length > 0){
+      var updated = new Team(original[0]);
+      updated.update(team);
+      this.teams.splice(position, 0, updated);
+    }
   }
 
   var findTeamPosition = function (teams, teamID){

@@ -54,10 +54,16 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
     var button = $(event.relatedTarget);
     var teamID = button.data('teamid');
     var modal = $(this);
+    $scope.teamFormData = {
+      teamID : teamID,
+      teamName : button.data('teamname'),
+      teamOwner : button.data('owner'),
+      position : button.data('position')
+    };
     if (teamID){
       modal.find('.modal-title').text('Edit Team');
       $('#submitbtn').text('Update');
-      $scope.teamFormData = { id: teamID };
+      modal.find('[name=teamID]').val(teamID);
       modal.find('[name=teamName]').val(button.data('teamname'));
       modal.find('[name=owner]').val(button.data('owner'));
       modal.find('[name=position]').val(button.data('position'));
@@ -104,10 +110,10 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
   }
 
   var setTeams = function (teamData){
-    $scope.currentPick = teamData.teams.splice(teamData.currentPick, 1)[0];
+    $scope.currentPick = teamData.teams[teamData.currentPick];
     $scope.teams = teamData.teams;
     if (teamData.currentPick < $scope.teams.length){
-        $scope.teams[teamData.currentPick].nextUp = true;
+        $scope.teams[teamData.currentPick].activePick = true;
     }
   };
 
@@ -138,7 +144,7 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
   }
 
   var shortenName = function (original, length){
-    if (original.length < 10){
+    if (original.length < length){
       return original;
     } else {
       return original.slice(0, length-1) + '...';
