@@ -2,7 +2,7 @@
 
 var team = function(args){
   var args = args || {};
-  this.id = nextID();
+  this.id = args.id || nextID();
   this.name = args.name || '';
   this.owner = args.owner || '';
   this.players = [];

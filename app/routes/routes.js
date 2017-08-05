@@ -49,7 +49,7 @@ var routes = function (app) {
     if (teamID){
       data.leagues.updateTeam(league,
         {id: teamID, name: teamName, owner: teamOwner},
-        req.position,
+        req.body.position,
         function (err, data){
           res.json(data);
         });
