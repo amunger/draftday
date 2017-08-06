@@ -1,0 +1,11 @@
+{
+"GB": 4, "PHI": 4,
+"JAX":5, "KC": 5, "NO": 5, "SEA": 5,
+"MIN": 6, "TB": 6,
+"CAR": 7, "DAL": 7,
+"BAL": 8, "LA": 8, "MIA": 8, "NY": 8, "PIT": 8, "SF": 8,
+"ARI": 9, "CHI": 9, "CIN": 9, "HOU": 9, "NE": 9, "WAS": 9,
+"BUF": 10, "DET": 10, "IND": 10, "OAK": 10,
+"ATL": 11, "DEN": 11, "NYJ": 11, "SD": 11,
+"CLE": 13, "TEN": 13
+}

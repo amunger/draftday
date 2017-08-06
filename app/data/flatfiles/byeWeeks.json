@@ -1,11 +1,9 @@
 {
-"GB": 4, "PHI": 4,
-"JAX":5, "KC": 5, "NO": 5, "SEA": 5,
-"MIN": 6, "TB": 6,
-"CAR": 7, "DAL": 7,
-"BAL": 8, "LA": 8, "MIA": 8, "NY": 8, "PIT": 8, "SF": 8,
-"ARI": 9, "CHI": 9, "CIN": 9, "HOU": 9, "NE": 9, "WAS": 9,
-"BUF": 10, "DET": 10, "IND": 10, "OAK": 10,
-"ATL": 11, "DEN": 11, "NYJ": 11, "SD": 11,
-"CLE": 13, "TEN": 13
+"ATL":5, "DEN": 5, "NO": 5, "WAS": 5,
+"BUF": 6, "CIN": 6, "DAL": 6, "SEA": 6,
+"DET": 7, "HOU": 7,
+"ARI": 8, "GB": 8, "JAX": 8, "LA": 8, "NYG": 8, "TEN": 8,
+"CHI": 9, "CLE": 9, "LAC": 9, "MIN": 9, "NE": 9, "PIT": 9,
+"BAL": 10, "KC": 10, "OAK": 10, "PHI": 10,
+"CAR": 11, "IND": 11, "MIA": 11, "NYJ": 11, "SF": 11, "TB": 11
 }
