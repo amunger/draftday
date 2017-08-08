@@ -19,15 +19,7 @@
         <p ng-repeat="user in users track by $index")>
           {{ user }}
         </p>
-
-
       </div>
-      <h4>Change Your Name</h4>
-      <p>Current Name: {{ name }}</p>
-      <form class="form form-inline" ng-submit='changeName()'>
-        <input type="text" class="form-control" ng-model="newName">
-        <button class="btn btn-sm btn-info">Change Name</button>
-      </form>
     </div>
   </div>
 </div>

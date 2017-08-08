@@ -31,6 +31,15 @@ var routes = function (app) {
     });
   });
 
+  app.post('/api/selectPlayerCustom/:league/', function (req, res) {
+    console.log(req.body);
+    var player = new model.Player({name: req.body.playerName, position: req.body.position, team: req.body.team});
+    var league = req.params.league;
+    data.leagues.addPlayerToCurrentTeam(league, player, function (err, data){
+      res.json({teams:data.teams, currentPick: data.currentPick});
+    });
+  });
+
   app.get('/api/undoLastPick/:league', function(req, res){
     var league = req.params.league;
     data.leagues.undoLastPick(league, function (err, data){

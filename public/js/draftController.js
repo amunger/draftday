@@ -38,6 +38,27 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
       });
   }
 
+  $scope.customPlayerFormData = {};
+
+  $('#selectCustomModal').on('show.bs.modal', function (event) {
+    var modal = $(this);
+    modal.find('[name=playerName]').val('');
+    modal.find('[name=position]').val('');
+    $scope.customPlayerFormData = {};
+  });
+
+  $scope.selectCustomPlayer = function() {
+    $http.post('/api/selectPlayerCustom/' + $scope.leagueName, $scope.customPlayerFormData)
+      .success(function(data) {
+        $scope.customPlayerFormData = {};
+        setTeams(data);
+        console.log(data);
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+  };
+
   $scope.undoLastPick = function (){
     $http.get('/api/undoLastPick/' + $scope.leagueName)
       .success(function(data) {
@@ -138,9 +159,6 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
     var team = shortenName(teamName, 15);
     if (found){
       found.selected = team;
-    } else {
-      player.selected = team;
-      $players.push(player);
     }
   }
 
