@@ -83,18 +83,19 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
     var button = $(event.relatedTarget);
     var teamID = button.data('teamid');
     var modal = $(this);
+    var position = button.data('position') + 1;
 
     $scope.teamFormData = {
       teamID : teamID,
       teamName : button.data('teamname'),
       teamOwner : button.data('owner'),
-      position : button.data('position')
+      position : position
     };
 
     modal.find('[name=teamID]').val(teamID);
     modal.find('[name=teamName]').val(button.data('teamname'));
     modal.find('[name=owner]').val(button.data('owner'));
-    modal.find('[name=position]').val(button.data('position') + 1);
+    modal.find('[name=position]').val(position);
   });
 
   $scope.teamFormData = {};
