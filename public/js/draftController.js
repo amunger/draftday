@@ -51,6 +51,7 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
     $http.post('/api/selectPlayerCustom/' + $scope.leagueName, $scope.customPlayerFormData)
       .success(function(data) {
         $scope.customPlayerFormData = {};
+        $('#selectCustomModal').modal('hide');
         setTeams(data);
         console.log(data);
       })
@@ -93,8 +94,7 @@ draftDayApp.controller('draftController', ['$scope', '$http', '$cookies', functi
     modal.find('[name=teamID]').val(teamID);
     modal.find('[name=teamName]').val(button.data('teamname'));
     modal.find('[name=owner]').val(button.data('owner'));
-    modal.find('[name=position]').val(button.data('position'));
-
+    modal.find('[name=position]').val(button.data('position') + 1);
   });
 
   $scope.teamFormData = {};

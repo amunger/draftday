@@ -19,7 +19,6 @@ var league = function (args){
     var original = this.teams.splice(originalPosition,1);
     if (original.length > 0){
       var updated = new Team(original[0]);
-      updated.update(team);
       this.teams.splice(position, 0, updated);
     }
   }

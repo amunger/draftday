@@ -5,17 +5,11 @@ var team = function(args){
   this.id = args.id || nextID();
   this.name = args.name || '';
   this.owner = args.owner || '';
-  this.players = [];
+  this.players = args.players || [];
 
   this.countAtPosition = function(position){
     var posList = this.players.filter(function(p) {return p.position == position});
     return posList.length;
-  }
-
-  this.update = function(args){
-    this.name = args.name || this.name;
-    this.owner = args.owner || this.owner;
-    this.players = args.players || this.players;
   }
 }
 
