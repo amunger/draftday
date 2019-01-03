@@ -13,8 +13,4 @@ alice->bob: hello
 @enduml
 ```
 
-<img src='https://g.gravizo.com/svg?
-@startuml;
-alice->bob:hello;
-@enduml;
-'>
+<img src='https://g.gravizo.com/svg?@startuml;alice->bob:hello;@enduml;'>
