@@ -4,6 +4,7 @@ module.exports = function() {
   var users = {};
   var messages = {};
 
+  // comment
   this.getMessages = function(league) {
     return messages[league] || [];
   }
