@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 var routes = require('./app/routes');
 
 var env = process.env.NODE_ENV || 'dev';
-
+// a comment to test git hub
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
