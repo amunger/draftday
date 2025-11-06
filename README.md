@@ -11,5 +11,5 @@ https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angula
 Angular Routing:
 https://scotch.io/tutorials/single-page-apps-with-angularjs-routing-and-templating
 
-Chat app:
+Chat app
 https://github.com/btford/angular-socket-io-im
