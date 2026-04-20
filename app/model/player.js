@@ -1,7 +1,7 @@
 'use strict'
 var assert = require('assert');
 
-var player = function(args){
+var player = function (args) {
   assert(args.name);
   this.id = args.id || nextPlayerID();
   this.name = args.name;
@@ -18,7 +18,7 @@ var nextPlayerID = function () {
   return currentID++;
 }
 
-var getRank = function (rank){
+var getRank = function (rank) {
   var parsed = parseInt(rank * 100)
-  return parsed || 999999;
+  return parsed || 9999999;
 }
