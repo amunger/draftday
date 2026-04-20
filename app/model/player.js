@@ -7,7 +7,7 @@ var player = function (args) {
   this.name = args.name;
   this.position = args.position && args.position.toUpperCase() || '';
   this.team = args.team && args.team.toUpperCase() || '';
-  this.bye = args.bye || 0;
+  this.bye = args.bye || -1;
   this.rank = args.rank * 100;
 }
 
@@ -20,5 +20,5 @@ var nextPlayerID = function () {
 
 var getRank = function (rank) {
   var parsed = parseInt(rank * 100)
-  return parsed || 9999999;
+  return parsed || 9999998;
 }
